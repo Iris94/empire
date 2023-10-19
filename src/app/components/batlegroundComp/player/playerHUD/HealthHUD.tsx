@@ -5,7 +5,7 @@ import { RootState } from '@/app/GlobalRedux/store'
 import { useSelector } from 'react-redux'
 import './hud.css';
 
-const healthHUD = () => {
+const HealthHUD = () => {
   const {playerHP} = useSelector((state: RootState) => state.player)
 
   return (
@@ -20,4 +20,4 @@ const healthHUD = () => {
   )
 }
 
-export default healthHUD
+export default HealthHUD
