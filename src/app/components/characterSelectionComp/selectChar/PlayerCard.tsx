@@ -22,7 +22,6 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
   onSelectCharacter,
 }) => {
 
-  
     return (
       <div
         className={`w-1/4 h-full flex flex-col blue-card 

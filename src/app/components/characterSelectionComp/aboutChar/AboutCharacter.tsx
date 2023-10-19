@@ -2,6 +2,7 @@ import React from 'react';
 import AboutBasicInfo from './AboutBasicInfo';
 import AboutBackground from './AboutBackground';
 import AboutStats from './AboutStats';
+import Link from 'next/link';
 
 const AboutCharacter = ({showAboutCharacter} : any) => {
 
@@ -12,8 +13,13 @@ const AboutCharacter = ({showAboutCharacter} : any) => {
       <AboutBasicInfo />
       <AboutBackground />
       <AboutStats />
+      
       <div className='w-full h-10 flex items-center justify-center blue-card p-1'>
-        <button className='rounded-md w-1/3 h-2/3 flex items-center justify-center dark-blue-card bg-green-950 text-white text-sm'>Start Game</button> 
+        <Link
+        href={'/battleground'}
+        className='rounded-md w-1/3 h-2/3 flex items-center 
+        justify-center dark-blue-card bg-green-950
+        text-white text-sm'>Start Game</Link> 
       </div>
     </div>
   );
