@@ -2,26 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@font-face {
+  font-family: 'fantasy';
+  src: url('/fantasy.otf') format('truetype');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.fantasyFont {
+  font-family: 'fantasy', sans-serif;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+letter-spacing: 0.2rem;
 }
+
+.paper-card {
+  border: 0.1rem solid #2c180c;
+  background: linear-gradient(129deg, rgba(89, 42, 25, 1) 12%, rgba(242, 170, 107, 1) 83%, rgba(217, 121, 65, 1) 96%);
+
+  box-shadow: 
+  inset 5px 5px 20px black,
+  5px 5px 15px black,
+  5px 5px 35px black;
+}
+
+.blue-card {
+  border: 0.1rem double #120b06;
+  background: radial-gradient(ellipse at 74% 40%, rgba(56, 77, 89, 1) 29%, rgba(9, 9, 13, 1) 90%);
+
+  box-shadow: 
+  inset 5px 5px 20px black,
+  5px 5px 15px black,
+  5px 5px 35px black;
+}
+
+.dark-blue-card {
+  border: 0.1rem solid #120b06;
+  background: linear-gradient(270deg, rgba(31, 42, 49, 1) 0%, rgba(0, 0, 0, 1) 100%);
+
+  box-shadow: 
+  inset 5px 5px 20px black,
+  5px 5px 15px black,
+  5px 5px 35px black;
+}
+
+.card-title {
+  text-shadow: 2px 2px 5px black;
+  }
+
+  .main-background {
+	  background-image: url('/menu.jpg');
+	  background-size: cover;
+	}
