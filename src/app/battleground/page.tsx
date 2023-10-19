@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Enemies from './Enemies';
-import Map from './Map';
-import Player from './Player';
+import Enemies from '../components/batlegroundComp/enemies/Enemies';
+import Map from '../components/batlegroundComp/map/Map';
+import Player from '../components/batlegroundComp/player/Player';
 
 
 const Battleground = () => {

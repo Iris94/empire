@@ -1,0 +1,25 @@
+.diabloHeart {
+    height: 150%;
+    border-radius: 100%;
+    background: linear-gradient(180deg, rgba(255, 0, 13, 1) 0%, rgba(88, 1, 9, 1) 50%, rgba(41, 0, 0, 1) 100%);
+
+    box-shadow:
+    1rem 1rem 2.5rem black,
+    2rem 2rem 5rem red,
+    inset 0rem 0rem 3rem darkred
+}
+
+.diabloMana {
+    height: 150%;
+    border-radius: 100%;
+    background: linear-gradient(180deg, rgb(0, 26, 255) 0%, rgb(1, 9, 122) 50%, rgb(1, 0, 41) 100%);
+
+    box-shadow:
+    2rem 2rem 5rem black,
+    5rem 5rem 10rem blue,
+    inset 0rem 0rem 3rem darkblue
+}
+
+.playerCard {
+    border-radius: 100% 100% 0 0;
+}
