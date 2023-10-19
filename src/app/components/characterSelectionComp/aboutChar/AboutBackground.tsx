@@ -18,7 +18,7 @@ const AboutBackground = () => {
            </p> : ''}
 
            {playerClass === 'Assassin' ? <p className='text-white dark-blue-card text-xs'>
-           Stormhaven is protected not by an army but by a brotherhood, a brotherhood of the chosen few. When brute force or magic can't win battles, that's the time to keep your eyes open because that's when they strike. Each one is as skilled as a hundred men, hidden in plain sight, experts in weaponry and magic usage. There is no faith they would betray, and so it was when the gates of the abyss opened, they marched. For they know that the blood magic of their brotherhood will keep them fighting until there is no more dawn
+           Stormhaven is protected not by an army but by a brotherhood, a brotherhood of the chosen few. When brute force or magic can&rsquo;t win battles, that&rsquo;s the time to keep your eyes open because that&rsquo;s when they strike. Each one is as skilled as a hundred men, hidden in plain sight, experts in weaponry and magic usage. There is no faith they would betray, and so it was when the gates of the abyss opened, they marched. For they know that the blood magic of their brotherhood will keep them fighting until there is no more dawn
            </p> : ''}
         </div>
       )
