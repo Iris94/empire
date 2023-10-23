@@ -1,8 +1,8 @@
 import React from 'react'
-import { Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10, Map9 } from '../../../imageImport';
+import { Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10 } from '../../../imageImport';
 import Image from 'next/image';
 
-const mapImages = [Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map9, Map10];
+const mapImages = [Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10];
 
 const Map = () => {
 

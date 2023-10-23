@@ -1,6 +1,6 @@
 .diabloHeart {
-    height: 150%;
-    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background: linear-gradient(180deg, rgba(255, 0, 13, 1) 0%, rgba(88, 1, 9, 1) 50%, rgba(41, 0, 0, 1) 100%);
 
     box-shadow:
@@ -10,8 +10,8 @@
 }
 
 .diabloMana {
-    height: 150%;
-    border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     background: linear-gradient(180deg, rgb(0, 26, 255) 0%, rgb(1, 9, 122) 50%, rgb(1, 0, 41) 100%);
 
     box-shadow:

@@ -1,13 +1,29 @@
-'use client';
+'use client'
 
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
 import playerReducer from "./Features/player/playerSlice";
 
+const persistConfig = {
+  key: "root",
+  storage, 
+};
+
+const persistedReducer = persistReducer(persistConfig, playerReducer);
+
 export const store = configureStore({
-    reducer: {
-        player: playerReducer,
-    }
-})
+  reducer: {
+    player: persistedReducer,
+  },
+
+  middleware: getDefaultMiddleware({
+    serializableCheck: false, // Disable serializableCheck middleware
+  }),
+});
+
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
-export type appDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;

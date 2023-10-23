@@ -2,12 +2,24 @@ import React from 'react'
 import HealthHUD from './playerHUD/HealthHUD'
 import ManaHUD from './playerHUD/ManaHUD'
 import PlayerHUD from './playerHUD/PlayerHUD'
-
+import AttackPoints from './playerHUD/AttackPoints'
+import PlayerSkills from './playerHUD/PlayerSkills'
+import DefenseStack from './playerDefenseTree/DefenseStack'
 
 const Player = () => {
   return (
-    <div className='w-full h-1/2 z-10 flex items-end'>
-        <div className='w-full h-1/3 dark-blue-card z-20 flex justify-between items-end'>
+    <div className='w-full h-1/2 z-10 flex flex-col'>
+        <div className='w-full h-1/3 z-20'></div>
+        <div className='w-full h-1/3 z-20 flex'>
+            <div className='w-1/2 flex justify-evenly items-center'>
+              <PlayerSkills />
+              <AttackPoints />
+            </div>
+            <div className='w-1/2 flex justify-evenly items-center'>
+              <DefenseStack />
+            </div> 
+        </div>
+        <div className='w-full h-1/3 dark-blue-card z-20 flex justify-between items-end p-2'>
             <HealthHUD />
             <PlayerHUD />
             <ManaHUD />

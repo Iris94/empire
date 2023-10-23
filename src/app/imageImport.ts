@@ -8,8 +8,10 @@ import Map4 from '../../public/04.jpg';
 import Map6 from '../../public/05.jpg';
 import Map7 from '../../public/07.jpg';
 import Map8 from '../../public/08.jpg';
-import Map9 from '../../public/09.jpg';
 import Map10 from '../../public/10.jpg';
+import ChaosSoldier from '../../public/demonSoldier.jpg';
+import ChaosArcher from '../../public/demonArcher.jpg';
+import ChaosMage from '../../public/demonMage.jpg';
 
 export { 
     Knight, 
@@ -22,6 +24,8 @@ export {
     Map6,
     Map7,
     Map8,
-    Map9,
     Map10,
+    ChaosArcher,
+    ChaosMage,
+    ChaosSoldier,
 };
