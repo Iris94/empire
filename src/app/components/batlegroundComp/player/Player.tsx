@@ -10,7 +10,7 @@ const Player = () => {
 
         </div>
 
-        <div className='w-full lg:h-1/3 fractal paper-card 
+        <div className='w-full h-1/2 lg:h-1/3 fractal paper-card 
         z-20 flex justify-center items-end p-2'>
             <div className='w-fit h-fit flex z-30 justify-between items-end playerHud dark-blue-card'>
               <HealthHUD />
