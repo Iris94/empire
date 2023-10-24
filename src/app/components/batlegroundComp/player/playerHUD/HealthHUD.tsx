@@ -9,7 +9,7 @@ const HealthHUD = () => {
   const {playerHP} = useSelector((state: RootState) => state.player)
 
   return (
-    <div className='w-1/6 h-full diabloHeart items-center flex flex-col'>
+    <div className='w-1/6 h-fit diabloHeart items-center flex flex-col'>
         <div className='w-full h-full diabloHeart flex items-center justify-center text-white text-xs'>
           {playerHP}
         </div>

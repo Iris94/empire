@@ -11,7 +11,7 @@ const PlayerHUD = () => {
   const {playerClass, playerImage} = useSelector((state: RootState) => state.player)
 
   return (
-    <div className='w-56 h-full flex flex-col-reverse bg-transparent p-2'>
+    <div className='w-1/3 lg:w-1/6 h-fit flex flex-col-reverse p-2'>
       <div className='blue-card p-1 flex gap-1 relative items-center justify-center'>
         <h5 className='text-zinc-400 h-1/6 w-full text-xs flex justify-center items-center'>
           {playerClass}

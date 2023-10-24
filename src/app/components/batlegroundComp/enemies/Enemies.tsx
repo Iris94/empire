@@ -7,6 +7,10 @@ const Enemies = () => {
         <EnemyTemplate />
         <EnemyTemplate />
         <EnemyTemplate />
+        <EnemyTemplate />
+        <EnemyTemplate />
+        <EnemyTemplate />
+        <EnemyTemplate />
 
     </div>
   )

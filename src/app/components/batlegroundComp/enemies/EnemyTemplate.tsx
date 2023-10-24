@@ -47,16 +47,14 @@ const EnemyTemplate = () => {
     const imageTypeText = getImageTypeText(randomImage);
 
   return (
-    <div className='flex flex-col p-2 dark-blue-card w-32 h-1/2'>
-      <div className='h-fit w-full'>
-        <div className='w-full h-full'>
+    <div className='flex flex-col p-2 dark-blue-card h-fit w-14'>
+      <div className='h-fit w-full '>
           <Image src={randomImage} alt='soldiers' />
-        </div>
       </div>
-      <div className='h-1/6 blue-card text-red-500 text-center text-sm'>
+      <div className='h-fit w-full blue-card text-red-500 text-center text-xs'>
         <p>{imageTypeText}</p>
       </div>
-      <div className='h-1/6 w-full'>
+      <div className='h-fit w-full'>
         <hr 
         id='enemyHP'
         className='bg-red-500 border-none w-full h-1'/>
