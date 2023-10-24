@@ -1,6 +1,5 @@
 .diabloHeart {
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
     background: linear-gradient(180deg, rgba(255, 0, 13, 1) 0%, rgba(88, 1, 9, 1) 50%, rgba(41, 0, 0, 1) 100%);
 
     box-shadow:
@@ -11,7 +10,6 @@
 
 .diabloMana {
     aspect-ratio: 1 / 1;
-    border-radius: 50%;
     background: linear-gradient(180deg, rgb(0, 26, 255) 0%, rgb(1, 9, 122) 50%, rgb(1, 0, 41) 100%);
 
     box-shadow:
@@ -20,6 +18,31 @@
     inset 0rem 0rem 3rem darkblue
 }
 
-.playerCard {
-    border-radius: 100% 100% 0 0;
+.playerHud {
+    height: 150%;
 }
+
+.playerCard {
+    border-radius: 50% 50% 0 0;
+    aspect-ratio: 1 / 1;
+}
+
+.fractal {
+    background-image: url('/fractal.jpg');
+    background-repeat: repeat;
+    background-position: left;
+    position: relative;
+  }
+
+  .fractal::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1rem solid transparent; /* Adjust the border width as needed */
+    border-image: url('/rope.jpg') 30% repeat; /* Set the border image, slice, and repeat */
+    border-image-outset: 0; /* Control the border image outset */
+    z-index: -1; /* Place it behind the content */
+  }

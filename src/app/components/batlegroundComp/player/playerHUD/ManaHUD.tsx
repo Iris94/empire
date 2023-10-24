@@ -9,11 +9,11 @@ const ManaHUD = () => {
   const {playerMana} = useSelector((state: RootState) => state.player)
 
   return (
-    <div className='diabloMana w-1/6 items-center flex flex-col'>
-        <div className='w-full diabloMana flex items-center justify-center text-white'>
+    <div className='w-1/6 h-full diabloMana items-center flex flex-col'>
+        <div className='w-full h-full diabloMana flex items-center justify-center text-white text-xs'>
           {playerMana}
         </div>
-        <div className='w-2/3'>
+        <div className='w-full'>
           <hr className='w-full h-3 paper-card'></hr>
         </div>
     </div>

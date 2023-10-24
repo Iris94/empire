@@ -11,14 +11,18 @@ const PlayerHUD = () => {
   const {playerClass, playerImage} = useSelector((state: RootState) => state.player)
 
   return (
-    <div className='w-1/6 playerCard flex flex-col-reverse blue-card p-2'>
-        <h5 className='dark-blue-card text-zinc-400 h-2/6 w-full flex justify-center items-center'>{playerClass}</h5>
-        <div className='dark-blue-card w-full playerCard relative'>
-          <Image src={playerImage} alt='player-image' className='playerCard' />
-          <figure className="absolute bottom-0 right-0 text-red-900 text-4xl font-bold">
-            <GiCrossedSwords />
-          </figure>
-        </div>
+    <div className='w-56 h-full flex flex-col-reverse bg-transparent p-2'>
+      <div className='blue-card p-1 flex gap-1 relative items-center justify-center'>
+        <h5 className='text-zinc-400 h-1/6 w-full text-xs flex justify-center items-center'>
+          {playerClass}
+        </h5>
+        <figure className="text-red-600 text-xl font-bold absolute right-0">
+          <GiCrossedSwords />
+        </figure>
+      </div>
+      <div className='dark-blue-card w-full h-full flex justify-center items-center playerCard'>
+        <Image src={playerImage} alt='player-image' className='playerCard h-full w-full p-1' />
+      </div>
     </div>
   )
 }
