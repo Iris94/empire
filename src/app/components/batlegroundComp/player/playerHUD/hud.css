@@ -28,9 +28,6 @@
 }
 
 .fractal {
-    background-image: url('/fractal.jpg');
-    background-repeat: repeat;
-    background-position: left;
     position: relative;
   }
 
@@ -41,7 +38,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1rem solid transparent; /* Adjust the border width as needed */
+    border: 0.5rem solid transparent; /* Adjust the border width as needed */
     border-image: url('/rope.jpg') 30% repeat; /* Set the border image, slice, and repeat */
     border-image-outset: 0; /* Control the border image outset */
     z-index: -1; /* Place it behind the content */
