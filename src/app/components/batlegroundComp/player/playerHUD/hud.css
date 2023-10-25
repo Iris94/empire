@@ -1,4 +1,5 @@
 .diabloHeart {
+    width: 10vmax;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background: linear-gradient(180deg, rgba(255, 0, 13, 1) 0%, rgba(88, 1, 9, 1) 50%, rgba(41, 0, 0, 1) 100%);
@@ -6,10 +7,13 @@
     box-shadow:
     1rem 1rem 2.5rem black,
     2rem 2rem 5rem red,
-    inset 0rem 0rem 3rem darkred
+    inset 0rem 0rem 3rem darkred;
+
+    font-size: 2vmin;
 }
 
 .diabloMana {
+    width: 10vmax;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background: linear-gradient(180deg, rgb(0, 26, 255) 0%, rgb(1, 9, 122) 50%, rgb(1, 0, 41) 100%);
@@ -17,14 +21,21 @@
     box-shadow:
     2rem 2rem 5rem black,
     5rem 5rem 10rem blue,
-    inset 0rem 0rem 3rem darkblue
+    inset 0rem 0rem 3rem darkblue;
+
+    font-size: 2vmin;
 }
 
 .playerHud {
-    height: 125%;
+    height: 100%;
 }
 
 .playerCard {
     border-radius: 50% 50% 0 0;
     aspect-ratio: 1 / 1;
 }
+
+.player-width-css {
+    width: 12vmax;
+}
+
