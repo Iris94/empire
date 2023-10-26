@@ -19,7 +19,7 @@ const AboutCharacter = ({showAboutCharacter} : any) => {
         href={'/battleground'}
         className='rounded-md w-1/3 h-2/3 flex items-center 
         justify-center dark-blue-card bg-green-950
-        text-white text-sm'>Start Game</Link> 
+        text-white'>Start Game</Link> 
       </div>
     </div>
   );

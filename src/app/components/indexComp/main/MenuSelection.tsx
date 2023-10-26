@@ -3,7 +3,7 @@ import Listing from './listing';
 
 const MenuSelection: React.FC = () => (
   <section className="w-4/6 h-4/6 z-10 flex justify-center items-center flex-col">
-    <ul className="flex flex-col gap-3 w-2/3 h-full justify-center">
+    <ul className="flex flex-col gap-2 w-2/3 h-full justify-center">
       <Listing
       width="w-full"
       jumpToAnotherPageFromMenu="/characterSelection"

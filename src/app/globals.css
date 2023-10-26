@@ -8,13 +8,23 @@
   src: url('/fantasy.otf') format('truetype');
 }
 
-.fantasyFont {
-  font-family: 'fantasy', sans-serif;
+@font-face {
+  font-family: 'nogard';
+  src: url('/nogard.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, a {
+  font-family: "fantasy";
+  font-size: 2vmin;
 }
 
 body {
 letter-spacing: 0.2rem;
+font-family: "nogard";
+font-size: 2vmin;
+line-height: 1.5;
 }
+
 
 .paper-card {
   border: 0.1rem solid #2c180c;
@@ -54,3 +64,6 @@ letter-spacing: 0.2rem;
 	  background-image: url('/menu.jpg');
 	  background-size: cover;
 	}
+
+
+  

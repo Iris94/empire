@@ -6,7 +6,7 @@ export default function Home() {
     <main 
     className="main-background w-screen h-screen z-0 
     flex flex-col items-center lg:items-start 
-    justify-center p-9 lg:gap-8">
+    justify-center p-9 lg:gap-8 gap-8">
       <MenuHeader />
       <MenuSelection />
     </main>
