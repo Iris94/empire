@@ -8,7 +8,7 @@ import Player from '../components/batlegroundComp/player/Player';
 const Battleground = () => {
 
   return (
-    <main className='w-screen h-screen overflow-hidden flex flex-col'>
+    <main className='w-screen h-screen flex flex-col'>
       <Enemies />
       <Map />
       <Player />

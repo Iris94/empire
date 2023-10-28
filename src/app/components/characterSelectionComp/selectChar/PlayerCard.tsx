@@ -32,7 +32,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
           onClick={onSelectCharacter}
       >
         <div className="w-2/3 flex justify-center items-center dark-blue-card">
-          <h5 className="text-white opacity-85 text-sm">{playerClass}</h5>
+          <h5 className="text-white opacity-85">{playerClass}</h5>
         </div>
   
         <div className="w-full flex justify-center items-center p-2">

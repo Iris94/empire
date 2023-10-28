@@ -8,8 +8,8 @@ const AboutStats = () => {
       );
 
     return (
-        <div className='w-full h-2/6 flex flex-col blue-card'>
-            <div className='text-white w-full p-2 mt-2 h-1/2 text-xs flex justify-center items-center'>
+        <div className='w-full h-1/6 flex flex-col blue-card p-1'>
+            <div className='text-white w-full h-full lg:overflow-hidden overflow-scroll flex  dark-blue-card'>
                {playerClass === 'Knight' ? <p>
                Knights are experts in survivability and absorbing blows. Gameplay revolves around pushing through, blocking damage, and countering
                </p>
@@ -24,9 +24,6 @@ const AboutStats = () => {
                 Assassins can hold their own and deliver an extreme amount of damage. Gameplay revolves around stealth, traps, and critical hits.  
                 </p>
                 : ''} 
-            </div>
-            <div className='w-full p-1 h-1/2'>
-                
             </div>
         </div>
       )

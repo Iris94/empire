@@ -54,11 +54,11 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
   };
 
   return (
-    <div className="w-1/2 h-3/6 z-10 flex justify-center items-center flex-col paper-card">
+    <div className="w-1/2 lg:h-3/6 h-4/6 z-10 flex justify-center items-center flex-col paper-card">
       <div className="lg:w-1/2 w-4/6 h-1/6 flex justify-center items-center">
         <h3 className="lg:text-xl font-semibold">Pick a character</h3>
       </div>
-      <div className="w-full h-full flex flex-col lg:flex-row justify-evenly items-center gap-3 p-3">
+      <div className="w-full h-full flex flex-row justify-evenly items-center gap-3 p-3">
         <PlayerCard
           playerClass="Knight"
           playerImage={Knight}
