@@ -8,7 +8,7 @@ const AboutBackground = () => {
       );
 
     return (
-        <div className='w-full lg:h-3/6 h-2/6 flex blue-card p-1'>
+        <div className='w-full lg:h-3/6 h-2/6 flex blue-card p-1 hover:scale-110'>
            {playerClass === 'Knight' ? <p className='text-white dark-blue-card lg:overflow-hidden overflow-scroll'>
            The Knights of Eldoria are the proudest and most battle-hardened veterans out there. While many would fall, they remain steadfast. When the gates of abyss opened, they were the first to arrive, knowing full well that each time they fell, they would rise again through the magic of Eldoria. They will fight for their king, they will die for their king, and they will continue to do so until they lose their minds.
            </p> : ''}

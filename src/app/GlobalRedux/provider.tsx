@@ -15,18 +15,13 @@ export function Providers ({children} : any) {
 
     function handleClick() {
         if (isPhoneScreen()) {
-            if (document.fullscreenElement) {
-                // If the game is in fullscreen and it's a phone, exit fullscreen
-                document.exitFullscreen();
-            } else {
+            if (!document.fullscreenElement) {
                 // If the game is not in fullscreen and it's a phone, request fullscreen
                 document.documentElement.requestFullscreen();
             }
         }
-    }
-    
+    }    
 
-    // Function to check if the screen size corresponds to a phone
     function isPhoneScreen() {
         // Adjust these values according to your requirements
         const minWidth = 415; // Minimum screen width for a phone

@@ -8,7 +8,7 @@ const AboutStats = () => {
       );
 
     return (
-        <div className='w-full h-1/6 flex flex-col blue-card p-1'>
+        <div className='w-full h-1/6 flex flex-col blue-card p-1 hover:scale-110'>
             <div className='text-white w-full h-full lg:overflow-hidden overflow-scroll flex  dark-blue-card'>
                {playerClass === 'Knight' ? <p>
                Knights are experts in survivability and absorbing blows. Gameplay revolves around pushing through, blocking damage, and countering
