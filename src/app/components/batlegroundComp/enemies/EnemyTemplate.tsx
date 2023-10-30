@@ -60,6 +60,9 @@ const EnemyTemplate = () => {
         id='enemyHP'
         className='bg-red-500 border-none w-full h-1'/>
       </div>
+      <div className='h-fit w-full text-red-500 flex justify-center items-center'>
+        {health}
+      </div>
     </div>
   )
 }

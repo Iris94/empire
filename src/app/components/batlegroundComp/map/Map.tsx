@@ -10,7 +10,7 @@ const Map = () => {
   const selectedMap = mapImages[randomIndex];
 
   return (
-    <div className='z-0 w-full h-screen absolute'>
+    <div className='z-0 w-full h-screen absolute flex items-center justify-center'>
       <Image src={selectedMap} alt='Map' fill className="cover" />
     </div>
   )

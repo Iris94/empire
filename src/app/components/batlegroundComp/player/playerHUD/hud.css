@@ -26,16 +26,12 @@
     font-size: 2vmin;
 }
 
-.playerHud {
-    height: 100%;
-}
-
 .playerCard {
     border-radius: 50% 50% 0 0;
     aspect-ratio: 1 / 1;
 }
 
 .player-width-css {
-    width: 12vmax;
+    width: 30vmax;
 }
 

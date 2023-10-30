@@ -5,6 +5,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import playerReducer from "./Features/player/playerSlice";
+import levelReducer from "./Features/level/levelSlice";
 
 const persistConfig = {
   key: "root",
@@ -16,6 +17,7 @@ const persistedReducer = persistReducer(persistConfig, playerReducer);
 export const store = configureStore({
   reducer: {
     player: persistedReducer,
+    levelReducer,
   },
 
   middleware: getDefaultMiddleware({
