@@ -1,0 +1,21 @@
+{
+    "ChaosSoldier": {
+      "name": "ChaosSoldier",
+      "enemyClass": "Soldier",
+      "enemyHP": 100,
+      "enemyPoints": 60
+    },
+    "ChaosArcher": {
+      "name": "ChaosArcher",
+      "enemyClass": "Archer",
+      "enemyHP": 80,
+      "enemyPoints": 80
+    },
+    "ChaosMage": {
+      "name": "ChaosMage",
+      "enemyClass": "Mage",
+      "enemyHP": 60,
+      "enemyPoints": 100
+    }
+  }
+  
