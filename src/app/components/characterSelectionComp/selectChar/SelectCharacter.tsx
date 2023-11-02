@@ -1,7 +1,7 @@
 
 
 import React, { FC } from 'react';
-import { Knight, Mage, Assassin } from '../../../imageImport';
+import { Knight, Mage, Assassin } from '../../states&imports/imageImport';
 import PlayerCard from './PlayerCard';
 import { useDispatch } from 'react-redux';
 import {
