@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { ChaosArcher, ChaosMage, ChaosSoldier } from '@/app/components/states&imports/imageImport';
-import EnemyTemplate from '../EnemyTemplate';
+import EnemyTemplate from '../../batlegroundComp/enemies/EnemyTemplate';
 import { StaticImageData } from 'next/image';
-import getRandomEnemy from './GetRandomEnemy';
+import getRandomEnemy from '../scriptForEnemies/GetRandomEnemy';
 
 const getCorrectImageForEnemy = (randomEnemyName: string) => {
   const footSoldiers: Record<string, StaticImageData> = {
@@ -16,7 +16,7 @@ const getCorrectImageForEnemy = (randomEnemyName: string) => {
   return footSoldiers[randomEnemyName];
 };
 
-const GenerateEnemies = () => {
+const EnemyInterface = () => {
   const randomEnemy = getRandomEnemy();
   const correctEnemyImage = getCorrectImageForEnemy(randomEnemy.name);
 
@@ -30,4 +30,4 @@ const GenerateEnemies = () => {
   );
 };
 
-export default GenerateEnemies;
+export default EnemyInterface;

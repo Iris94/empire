@@ -1,4 +1,4 @@
-
+'use client'
 
 import React, { FC } from 'react';
 import { Knight, Mage, Assassin } from '../../states&imports/imageImport';
@@ -6,7 +6,7 @@ import PlayerCard from './PlayerCard';
 import { useDispatch } from 'react-redux';
 import {
   setPlayerClass,
-  setPlayerHP,
+  setPlayerHealth,
   setPlayerMana,
   setPlayerAttack,
   setPlayerPoints,
@@ -25,7 +25,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
     switch (characterClass) {
       case 'Knight':
         dispatch(setPlayerClass('Knight'));
-        dispatch(setPlayerHP(125));
+        dispatch(setPlayerHealth(125));
         dispatch(setPlayerMana(75));
         dispatch(setPlayerAttack(125));
         dispatch(setPlayerPoints(5));
@@ -33,7 +33,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         break;
       case 'Mage':
         dispatch(setPlayerClass('Mage'));
-        dispatch(setPlayerHP(75));
+        dispatch(setPlayerHealth(75));
         dispatch(setPlayerMana(150));
         dispatch(setPlayerAttack(100));
         dispatch(setPlayerPoints(7));
@@ -41,7 +41,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         break;
       case 'Assassin':
         dispatch(setPlayerClass('Assassin'));
-        dispatch(setPlayerHP(100));
+        dispatch(setPlayerHealth(100));
         dispatch(setPlayerMana(100));
         dispatch(setPlayerAttack(150));
         dispatch(setPlayerPoints(6));
@@ -62,7 +62,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         <PlayerCard
           playerClass="Knight"
           playerImage={Knight}
-          playerHP={125}
+          playerHealth={125}
           playerMana={75}
           playerAttack={125}
           playerPoints={5}
@@ -71,7 +71,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         <PlayerCard
           playerClass="Mage"
           playerImage={Mage}
-          playerHP={75}
+          playerHealth={75}
           playerMana={150}
           playerAttack={100}
           playerPoints={7}
@@ -80,7 +80,7 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         <PlayerCard
           playerClass="Assassin"
           playerImage={Assassin}
-          playerHP={100}
+          playerHealth={100}
           playerMana={100}
           playerAttack={150}
           playerPoints={6}

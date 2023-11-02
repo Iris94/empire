@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface PlayerState {
   playerClass: string;
   playerImage: any;
-  playerHP: number;
+  playerHealth: number;
   playerMana: number;
   playerAttack: number;
   playerPoints: number;
@@ -13,7 +13,7 @@ export interface PlayerState {
 
 const initialState: PlayerState = {
   playerClass: '',
-  playerHP: 0,
+  playerHealth: 0,
   playerMana: 0,
   playerAttack: 0,
   playerPoints: 0,
@@ -30,8 +30,8 @@ const playerSlice = createSlice({
     setPlayerImage: (state, action: PayloadAction<any>) => {
       state.playerImage = action.payload;
     },
-    setPlayerHP: (state, action: PayloadAction<number>) => {
-      state.playerHP = action.payload;
+    setPlayerHealth: (state, action: PayloadAction<number>) => {
+      state.playerHealth = action.payload;
     },
     setPlayerMana: (state, action: PayloadAction<number>) => {
       state.playerMana = action.payload;
@@ -48,7 +48,7 @@ const playerSlice = createSlice({
 export const {
   setPlayerClass,
   setPlayerImage,
-  setPlayerHP,
+  setPlayerHealth,
   setPlayerMana,
   setPlayerAttack,
   setPlayerPoints,

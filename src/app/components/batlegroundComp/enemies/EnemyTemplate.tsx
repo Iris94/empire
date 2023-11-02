@@ -1,6 +1,7 @@
 import React from 'react'
 import Image, { StaticImageData } from 'next/image';
 import './enemies.css'
+import { GiEnergySword, GiHeartPlus } from 'react-icons/gi';
 
 interface EnemyTemplateProps {
   enemyImage: StaticImageData;
@@ -29,11 +30,13 @@ const EnemyTemplate: React.FC<EnemyTemplateProps> = (
         id='enemyHP'
         className='bg-red-500 border-none w-full h-1'/>
       </div>
-      <div className='h-fit w-full text-red-500 flex justify-center items-center'>
-        <p>{enemyHP}</p>
+      <div className='h-fit w-full flex justify-between items-center'>
+          <div className='text-red-500 w-fit h-fit'>{enemyHP}</div>
+          <div className='text-red-500 w-fit h-fit'><GiHeartPlus /></div>
       </div>
-      <div className='h-fit w-full text-zinc-500 flex justify-center items-center'>
-        <p>{enemyPoints}</p>
+      <div className='h-fit w-full flex justify-between items-center'>
+          <div className='text-zinc-400 w-fit h-fit'>{enemyPoints}</div>
+          <div className='text-zinc-400 w-fit h-fit'><GiEnergySword /></div>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import Options from './subPlayerHUD/Options'
 import Tutorial from './subPlayerHUD/Tutorial'
 import Skills from './subPlayerHUD/Skills'
 
-const specialHUD = () => {
+const specialBar = () => {
   return (
     <div className='w-full h-full flex items-center justify-evenly'>
        <Tutorial />
@@ -13,4 +13,4 @@ const specialHUD = () => {
   )
 }
 
-export default specialHUD
+export default specialBar

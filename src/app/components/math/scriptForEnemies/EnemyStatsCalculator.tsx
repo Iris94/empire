@@ -1,5 +1,5 @@
-import enemyTypesData from '../../../enemyTypes.json';
-import levelState from '../../../states&imports/levelState';
+import enemyTypesData from '../../enemyTypes.json';
+import levelState from '../../states&imports/LevelState'
 
 interface EnemyType {
   enemyClass: string;

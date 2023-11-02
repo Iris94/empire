@@ -2,7 +2,7 @@ import React from 'react'
 import AttackPoints from './subPlayerHUD/AttackPoints'
 import LevelPoints from './subPlayerHUD/LevelPoints'
 
-const gameplayHUD = () => {
+const gameplayBar = () => {
   return (
     <div className='w-full h-full flex items-center justify-evenly'>
         <AttackPoints />
@@ -11,4 +11,4 @@ const gameplayHUD = () => {
   )
 }
 
-export default gameplayHUD
+export default gameplayBar

@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import GenerateEnemies from './scriptForEnemies/GenerateEnemies'
-import numberOfSpawns from './scriptForEnemies/numberOfSpawns'
+import GenerateEnemies from '../../math/gameplayScripting/EnemyInterface'
+import numberOfSpawns from '../../math/scriptForEnemies/numberOfSpawns'
 
 const Enemies = () => {
   const spawnNumber = numberOfSpawns()
-  const generatedEnemies = Array.from({length : spawnNumber}, (_, index) => (
-    <GenerateEnemies key={index}/>
+  const generatedEnemies = Array.from({ length: spawnNumber }, (_, index) => (
+    <GenerateEnemies key={index} />
   ))
 
   return (

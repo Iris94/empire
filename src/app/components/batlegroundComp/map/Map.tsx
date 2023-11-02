@@ -5,7 +5,6 @@ import Image from 'next/image';
 const mapImages = [Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10];
 
 const Map = () => {
-
   const randomIndex = Math.floor(Math.random() * mapImages.length);
   const selectedMap = mapImages[randomIndex];
 

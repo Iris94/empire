@@ -1,4 +1,4 @@
-import levelState from '../../../states&imports/levelState'
+import levelState from '../../states&imports/LevelState'
 
 let startingPoint = 1;
 

@@ -6,7 +6,7 @@ import { GiHeartPlus, GiRollingEnergy, GiEnergySword, GiEnergyArrow } from 'reac
 interface PlayerCardProps {
   playerClass: string;
   playerImage: any;
-  playerHP: number;
+  playerHealth: number;
   playerMana: number;
   playerAttack: number;
   playerPoints: number;
@@ -15,7 +15,7 @@ interface PlayerCardProps {
 const PlayerCard: React.FC<PlayerCardProps> = ({
   playerClass,
   playerImage,
-  playerHP,
+  playerHealth,
   playerMana,
   playerAttack,
   playerPoints,
@@ -47,34 +47,34 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
   
         <div className="w-full flex flex-col">
           <div className="flex justify-evenly items-center gap-1">
-            <figure className="text-red-700">
+            <figure className="text-red-500">
               <GiHeartPlus />
             </figure>
-            <hr className="w-full h-1 bg-red-700 border-none"></hr>
-            <p className="text-white w-2/6">{playerHP}</p>
+            <hr className="w-full h-1 bg-red-500 border-none"></hr>
+            <p className="text-white w-2/6">{playerHealth}</p>
           </div>
   
           <div className="flex justify-evenly items-center gap-1">
-            <figure className="text-blue-700">
+            <figure className="text-blue-500">
               <GiRollingEnergy />
             </figure>
-            <hr className="w-full h-1 bg-blue-700 border-none"></hr>
+            <hr className="w-full h-1 bg-blue-500 border-none"></hr>
             <p className="text-white w-2/6">{playerMana}</p>
           </div>
   
           <div className="flex justify-evenly items-center gap-1">
-            <figure className="text-green-700">
+            <figure className="text-yellow-500">
               <GiEnergySword />
             </figure>
-            <hr className="w-full h-1 bg-green-700 border-none"></hr>
+            <hr className="w-full h-1 bg-yellow-500 border-none"></hr>
             <p className="text-white w-2/6">{playerAttack}</p>
           </div>
   
           <div className="flex justify-evenly items-center gap-1">
-            <figure className="text-yellow-700">
+            <figure className="text-green-500">
               <GiEnergyArrow />
             </figure>
-            <hr className="w-full h-1 bg-yellow-700 border-none"></hr>
+            <hr className="w-full h-1 bg-green-500 border-none"></hr>
             <p className="text-white w-2/6">{playerPoints}</p>
           </div>
         </div>
