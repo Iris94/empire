@@ -1,7 +1,7 @@
 import enemyStatsCalculator from './EnemyStatsCalculator';
 
   
-export default function getRandomEnemy () {
+export default function GetRandomEnemy () {
     const updatedEnemyTypes = enemyStatsCalculator()
 
     const enemyNames = Object.keys(updatedEnemyTypes);

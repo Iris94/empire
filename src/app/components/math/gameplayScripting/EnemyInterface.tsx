@@ -1,33 +1,44 @@
 'use client'
 
-import React from 'react';
-import { ChaosArcher, ChaosMage, ChaosSoldier } from '@/app/components/states&imports/imageImport';
-import EnemyTemplate from '../../batlegroundComp/enemies/EnemyTemplate';
-import { StaticImageData } from 'next/image';
-import getRandomEnemy from '../scriptForEnemies/GetRandomEnemy';
+import React, { useState } from 'react'
+import '../../batlegroundComp/enemies/enemies.css'
+import EnemiesTemplate from '../../batlegroundComp/enemies/EnemiesTemplate';
+import { EnemyInterfaceProps } from '../../states&imports/interfaces';
+import { useGame } from '@/app/context/GameContext';
 
-const getCorrectImageForEnemy = (randomEnemyName: string) => {
-  const footSoldiers: Record<string, StaticImageData> = {
-    ChaosArcher,
-    ChaosMage,
-    ChaosSoldier,
-  };
 
-  return footSoldiers[randomEnemyName];
-};
+const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
+  enemyClass,
+  enemyHP,
+  enemyPoints,
+  enemyImage,
+  enemyIndex
+}) => {
+  const { attackMode, setAttackMode } = useGame()
+  const [displayedHealth, setDisplayedHealth] = useState(enemyHP);
 
-const EnemyInterface = () => {
-  const randomEnemy = getRandomEnemy();
-  const correctEnemyImage = getCorrectImageForEnemy(randomEnemy.name);
+  const interactWithEnemy = () => {
+    if (attackMode) {
+      setDisplayedHealth((prevHP) => prevHP - 20)
+      setAttackMode(false)
+    }
+  }
+
 
   return (
-    <EnemyTemplate
-      enemyImage={correctEnemyImage}
-      enemyClass={randomEnemy.enemyClass}
-      enemyHP={randomEnemy.enemyHP}
-      enemyPoints={randomEnemy.enemyPoints}
-    />
-  );
-};
+    <div onClick={interactWithEnemy}
+      className={`flex flex-col p-2 dark-blue-card h-fit 
+    enemies-width-css hover:cursor-pointer hover:scale-110
+    ${attackMode ? 'player-attacks-enemies-css' : ''}`}
+    >
+      <EnemiesTemplate
+        enemyClass={enemyClass}
+        enemyHP={displayedHealth}
+        enemyPoints={enemyPoints}
+        enemyImage={enemyImage}
+      />
+    </div>
+  )
+}
 
-export default EnemyInterface;
+export default EnemyInterface

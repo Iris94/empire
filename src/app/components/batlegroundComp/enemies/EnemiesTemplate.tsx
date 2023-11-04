@@ -1,25 +1,17 @@
 import React from 'react'
-import Image, { StaticImageData } from 'next/image';
-import './enemies.css'
+import Image, { StaticImageData } from 'next/image'
 import { GiEnergySword, GiHeartPlus } from 'react-icons/gi';
+import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 
-interface EnemyTemplateProps {
-  enemyImage: StaticImageData;
-  enemyClass: string;
-  enemyHP: number,
-  enemyPoints: number
-}
-
-const EnemyTemplate: React.FC<EnemyTemplateProps> = (
-  { enemyImage, 
+const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
     enemyClass,
     enemyHP,
-    enemyPoints }
-  ) => {
-
+    enemyImage,
+    enemyPoints
+}) => {
   return (
-    <div className='flex flex-col p-2 dark-blue-card h-fit enemies-width-css'>
-      <div className='h-fit w-full '>
+    <>
+        <div className='h-fit w-full '>
           <Image src={enemyImage} alt='soldiers' />
       </div>
       <div className='h-fit w-full blue-card text-red-500 text-center'>
@@ -38,8 +30,8 @@ const EnemyTemplate: React.FC<EnemyTemplateProps> = (
           <div className='text-zinc-400 w-fit h-fit'>{enemyPoints}</div>
           <div className='text-zinc-400 w-fit h-fit'><GiEnergySword /></div>
       </div>
-    </div>
+    </>
   )
 }
 
-export default EnemyTemplate
+export default EnemiesTemplate

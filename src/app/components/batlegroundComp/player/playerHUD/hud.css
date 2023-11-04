@@ -35,3 +35,74 @@
     width: 30vmax;
 }
 
+.attack-mode-knight {
+    animation: knightAnimation 5s infinite ease-in-out
+}
+
+.attack-mode-mage {
+    animation: mageAnimation 5s infinite ease-in-out
+}
+
+.attack-mode-assassin {
+    animation: assassinAnimation 5s infinite ease-in-out
+}
+
+@keyframes knightAnimation {
+    0%, 50% {
+    box-shadow: 
+    0 0 20px white,
+    0 0 80px rgb(127, 122, 92),
+    0 0 150px rgb(152, 149, 129),
+    0 0 250px rgb(194, 95, 3),
+    inset 0 0 250px rgb(235, 235, 234);
+
+}   25%, 100% {
+    box-shadow: 
+    0 0 50px white,
+    0 0 100px rgb(130, 111, 4),
+    0 0 200px rgb(165, 142, 10),
+    0 0 400px gold,
+    inset 0 0 400px goldenrod;
+
+}  
+}
+
+@keyframes mageAnimation {
+    0%, 100% {
+        box-shadow: 
+        0 0 100px black,
+        0 0 200px rgb(60, 1, 1),
+        0 0 40px rgb(139, 1, 1),
+        0 0 60px rgb(146, 1, 1),
+        inset 0 0 40px rgb(218, 1, 1);
+    }  50% {
+        border-top-right-radius: 25%;
+        box-shadow: 
+        0 0 100px black,
+        0 0 200px rgb(60, 1, 1),
+        0 0 400px rgb(139, 1, 1),
+        0 0 600px rgb(146, 1, 1),
+        inset 0 0 250px rgb(0, 0, 0);
+    }
+}
+
+@keyframes assassinAnimation {
+    0%, 100% {
+        box-shadow: 
+        0 0 10px black,
+        0 0 20px black,
+        0 0 30px rgb(48, 1, 66),
+        0 0 40px rgb(66, 1, 90),
+        inset 0 0 30px rgb(26, 0, 54);
+    }  50% {
+        box-shadow: 
+        0 0 90px black,
+        0 0 150px black,
+        0 0 200px rgb(48, 1, 66),
+        0 0 250px rgb(66, 1, 90),
+        inset 0 0 250px rgb(26, 0, 54);
+    }
+}
+
+
+  

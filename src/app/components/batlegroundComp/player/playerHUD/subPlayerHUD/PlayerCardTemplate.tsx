@@ -3,6 +3,8 @@ import { GiEnergySword } from 'react-icons/gi';
 import Image from 'next/image';
 import '../hud.css'
 import AutoStatsIncrement from '@/app/components/math/playerScripting/AutoStatsIncrement';
+import { useGame } from '@/app/context/GameContext';
+
 
 interface PlayerProps {
     playerClass: string,
@@ -12,9 +14,18 @@ interface PlayerProps {
 const PlayerCardTemplate: React.FC<PlayerProps> = (
     { playerClass, playerImage }
 ) => {
-
+    const { attackMode } = useGame()
     const {playerAttack} = AutoStatsIncrement()
 
+    let playerClassModifier = '';
+    if (playerClass === "Knight") {
+        playerClassModifier = "attack-mode-knight";
+    } else if (playerClass === "Mage") {
+        playerClassModifier = "attack-mode-mage";
+    } else if (playerClass === "Assassin") {
+        playerClassModifier = "attack-mode-assassin";
+    }
+    
     return (
         <>
             <div className='dark-blue-card p-1 flex gap-1 relative items-center justify-center'>
@@ -27,7 +38,7 @@ const PlayerCardTemplate: React.FC<PlayerProps> = (
                 </h5>
             </div>
             <div className='dark-blue-card w-full h-full flex justify-center items-center playerCard'>
-                <Image src={playerImage} alt='player-image' className='playerCard h-full w-full p-1' />
+                <Image src={playerImage} alt='player-image' className={`playerCard h-full w-full p-1 ${attackMode ? playerClassModifier : ''}`} />
             </div>
         </>
     )
