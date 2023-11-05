@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChaosArcher, ChaosMage, ChaosSoldier } from '@/app/components/states&imports/imageImport';
 import EnemyInterface from '../gameplayScripting/EnemyInterface';
 import { StaticImageData } from 'next/image';

@@ -6,7 +6,7 @@ import GenerateEnemies from '../../math/scriptForEnemies/GenerateEnemies'
 
 const Enemies = () => {
   const spawnNumber = numberOfSpawns()
-  const generatedEnemies = Array.from({ length: 5 }, (_, index) => (
+  const generatedEnemies = Array.from({ length: 3 }, (_, index) => (
     <GenerateEnemies key={index} enemyIndex={index} />
   ))
   

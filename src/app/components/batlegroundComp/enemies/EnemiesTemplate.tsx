@@ -9,6 +9,8 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
     enemyImage,
     enemyPoints
 }) => {
+
+
   return (
     <>
         <div className='h-fit w-full '>

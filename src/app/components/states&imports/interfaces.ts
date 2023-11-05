@@ -5,5 +5,5 @@ export interface EnemyInterfaceProps {
     enemyHP: number;
     enemyPoints: number;
     enemyImage: StaticImageData; 
-    enemyIndex?: number;
+    enemyIndex?: any;
   }
