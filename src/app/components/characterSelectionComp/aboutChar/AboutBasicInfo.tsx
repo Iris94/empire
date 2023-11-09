@@ -5,7 +5,7 @@ import { Knight, Mage, Assassin } from '@/app/components/states&imports/imageImp
 import Image from 'next/image';
 
 const AboutBasicInfo = () => {
-    const { playerClass, playerHP, playerMana, playerAttack, playerPoints } = useSelector(
+    const { playerClass, playerHealth, playerMana, playerAttack, playerPoints } = useSelector(
         (state: RootState) => state.player
     );
 
@@ -24,7 +24,7 @@ const AboutBasicInfo = () => {
                     <div className='w-full flex gap-2 justify-around items-center'>
                         <p className='text-red-700'>Health</p>
                         <hr className='bg-red-700 border-none w-full h-1' />
-                        <p className='text-white'>{playerHP}</p>
+                        <p className='text-white'>{playerHealth}</p>
                     </div>
                     <div className='w-full flex gap-2 justify-around items-center'>
                         <p className='text-blue-700'>Mana</p>
