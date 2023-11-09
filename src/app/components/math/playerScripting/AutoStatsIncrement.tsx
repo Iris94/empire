@@ -2,10 +2,10 @@
 
 import { useSelector } from "react-redux"
 import { RootState } from "@/app/GlobalRedux/store"
-import LevelState from "@/app/components/states&imports/LevelState"
 
 const AutoStatsIncrement = () => {
-    const playerLevel : number = LevelState()
+    const { level } = useSelector((state: RootState) => state.levelReducer)
+    const playerLevel : number = level
     const { playerAttack, 
             playerHealth, 
             playerMana } = useSelector((state : RootState) => state.player);

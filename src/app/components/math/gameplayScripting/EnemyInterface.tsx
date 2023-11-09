@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
 import '../../batlegroundComp/enemies/enemies.css'
 import EnemiesTemplate from '../../batlegroundComp/enemies/EnemiesTemplate';
 import { EnemyInterfaceProps } from '../../states&imports/interfaces';
@@ -13,22 +13,25 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyImage,
   enemyIndex
 }) => {
-  const { attackMode, setAttackMode, updateCombinedHealth, setCombinedHealth } = useGame();
-  const [displayedHealth, setDisplayedHealth] = useState(enemyHP);
-
-
-  useEffect(() => {
-    updateCombinedHealth(displayedHealth)
-  }, [])
+  const { attackMode, setAttackMode, generatedEnemies, updateGeneratedEnemies, setNextLevel, nextLevel} = useGame();
 
   const interactWithEnemy = () => {
     if (attackMode) {
-      setDisplayedHealth((prevHP) => prevHP - 20)
-      setCombinedHealth((prevHP) => prevHP - 20)
-      setAttackMode(false)
+    const updatedEnemies = [...generatedEnemies];
+    const updatedEnemy = { ...updatedEnemies[enemyIndex] };
+    updatedEnemy.props = { ...updatedEnemy.props };
+    updatedEnemy.props.enemyHP = Math.max(updatedEnemy.props.enemyHP - 100, 0);
+    updatedEnemies[enemyIndex] = updatedEnemy;
+    updateGeneratedEnemies(updatedEnemies);
+    setAttackMode(false);
     }
   }
-
+  
+  useEffect(() => {
+    if (generatedEnemies.every(enemy => enemy.props.enemyHP === 0)) {
+      setNextLevel(true)
+    }
+  }, [generatedEnemies]);
 
   return (
     <div onClick={interactWithEnemy}
@@ -38,7 +41,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
     >
       <EnemiesTemplate
         enemyClass={enemyClass}
-        enemyHP={displayedHealth}
+        enemyHP={enemyHP}
         enemyPoints={enemyPoints}
         enemyImage={enemyImage}
       />

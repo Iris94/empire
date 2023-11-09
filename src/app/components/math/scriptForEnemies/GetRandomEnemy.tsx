@@ -1,8 +1,8 @@
 import enemyStatsCalculator from './EnemyStatsCalculator';
 
   
-export default function GetRandomEnemy () {
-    const updatedEnemyTypes = enemyStatsCalculator()
+export default function GetRandomEnemy (level : number) {
+    const updatedEnemyTypes = enemyStatsCalculator(level)
 
     const enemyNames = Object.keys(updatedEnemyTypes);
     const randomIndex = Math.floor(Math.random() * enemyNames.length);

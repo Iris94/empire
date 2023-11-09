@@ -1,5 +1,4 @@
 import enemyTypesData from '../../enemyTypes.json';
-import levelState from '../../states&imports/LevelState'
 
 interface EnemyType {
   enemyClass: string;
@@ -11,7 +10,7 @@ interface EnemyType {
 const enemyTypes: Record<string, EnemyType> = enemyTypesData;
 
 
-const enemyStatsCalculator = () => {
+const enemyStatsCalculator = (level : number) => {
   const updatedEnemyTypes: Record<string, EnemyType> = {};
 
   for (const enemyName in enemyTypes) {
@@ -20,7 +19,7 @@ const enemyStatsCalculator = () => {
     }
 
     const enemy = enemyTypes[enemyName];
-    const levelNumber: number = levelState();
+    const levelNumber = level
     const levelModifier = (levelNumber - 1) * 10;
     const lowerBoundHP = Math.floor(enemy.enemyHP + levelModifier * 0.8);
     const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.3);

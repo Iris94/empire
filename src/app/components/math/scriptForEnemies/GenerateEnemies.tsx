@@ -1,34 +1,36 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ChaosArcher, ChaosMage, ChaosSoldier } from '@/app/components/states&imports/imageImport';
 import EnemyInterface from '../gameplayScripting/EnemyInterface';
 import { StaticImageData } from 'next/image';
-import getRandomEnemy from './GetRandomEnemy'
-
 
 
 const getCorrectImageForEnemy = (randomEnemyName: string) => {
   const footSoldiers: Record<string, StaticImageData> = {
-    ChaosArcher,
-    ChaosMage,
-    ChaosSoldier,
+    Archer : ChaosArcher,
+    Mage : ChaosMage,
+    Soldier : ChaosSoldier,
   };
 
   return footSoldiers[randomEnemyName];
 };
 
 
-const GenerateEnemies = (enemyIndex : any) => {
-  const randomEnemy = getRandomEnemy();
-  const correctEnemyImage = getCorrectImageForEnemy(randomEnemy.name);
-
+const GenerateEnemies = ({
+  enemyClass,
+  enemyHP,
+  enemyIndex,
+  enemyPoints
+}: any) => {
+  const correctEnemyImage = getCorrectImageForEnemy(enemyClass);
+  
   return (
       <EnemyInterface
         enemyImage={correctEnemyImage}
-        enemyClass={randomEnemy.enemyClass}
-        enemyHP={randomEnemy.enemyHP}
-        enemyPoints={randomEnemy.enemyPoints}
+        enemyClass={enemyClass}
+        enemyHP={enemyHP}
+        enemyPoints={enemyPoints}
         enemyIndex={enemyIndex}
       />
   );

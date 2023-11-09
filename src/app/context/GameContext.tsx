@@ -1,47 +1,59 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { RootState } from "../GlobalRedux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { setLevel } from "../GlobalRedux/Features/level/levelSlice";
 
 
 interface GameContextType {
   attackMode: boolean;
+  nextLevel: boolean;
+  generatedEnemies: any [];
+  setNextLevel: React.Dispatch<React.SetStateAction<boolean>>;
   setAttackMode: React.Dispatch<React.SetStateAction<boolean>>;
-  updateCombinedHealth: (change: any) => void;
-  setCombinedHealth: React.Dispatch<React.SetStateAction<number>>;
+  updateGeneratedEnemies: (newEnemies : any) => void;
 }
 
 const defaultValue: GameContextType = {
   attackMode: false,
+  nextLevel: false,
+  generatedEnemies: [],
+  setNextLevel: () => { },
   setAttackMode: () => { },
-  updateCombinedHealth: () => {},
-  setCombinedHealth: () => {}
+  updateGeneratedEnemies: () => {}
 };
 
 const GameContext = createContext(defaultValue);
 
 export function GameProvider({ children }: any) {
-  const [attackMode, setAttackMode] = useState(false)
-  const [combinedHealth, setCombinedHealth] = useState(0);
+  const [attackMode, setAttackMode] = useState(false);
+  const [generatedEnemies, setGeneratedEnemies] = useState([]);
+  const [nextLevel, setNextLevel] = useState(false);
+  const { level } = useSelector((state: RootState) => state.levelReducer)
+  const dispatch = useDispatch()
 
-  const updateCombinedHealth = (change : any) => {
-    setCombinedHealth((prevHealth) => prevHealth + (change / 2));
+  const updateGeneratedEnemies = (newEnemies : any) => {
+    setGeneratedEnemies(newEnemies);
   };
-
-
-
-  console.log(combinedHealth)
-
+  
   useEffect(() => {
-    if (combinedHealth < 1) {
-      console.log('Next level')
-    } 
-  }, [combinedHealth])
+    if (nextLevel) {
+      dispatch(setLevel(level + 1))
+      setNextLevel(false)
+    }
+  }, [nextLevel])
 
+  console.log(level)
 
   return (
-    <GameContext.Provider value={{ attackMode, setAttackMode, updateCombinedHealth, setCombinedHealth }}>
+    <GameContext.Provider 
+    value={{  attackMode, 
+              nextLevel,
+              generatedEnemies,
+              setNextLevel,
+              setAttackMode, 
+              updateGeneratedEnemies }}>
       {children}
     </GameContext.Provider>
   );

@@ -1,17 +1,13 @@
-import levelState from '../../states&imports/LevelState'
+export default function numberOfSpawns(level : number) {
+    let startingPoint = 1;
 
-let startingPoint = 1;
-
-export default function numberOfSpawns() {
-    const currentLevel = levelState();
-    if (currentLevel === 1) {
+    if (level === 1) {
         startingPoint = 1;
-    } else if (currentLevel % 5 === 0 && currentLevel > 1 && startingPoint !== 8) {
+    } else if (level % 5 === 0 && level > 1 && startingPoint !== 8) {
         startingPoint++;
     }
 
-    let numberOfEnemySpawns = Math.floor(Math.random() * 3) + startingPoint;
-    return numberOfEnemySpawns;
+    return Math.floor(Math.random() * 3) + startingPoint;
 }
 
 

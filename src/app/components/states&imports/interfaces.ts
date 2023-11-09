@@ -7,3 +7,10 @@ export interface EnemyInterfaceProps {
     enemyImage: StaticImageData; 
     enemyIndex?: any;
   }
+
+export interface Enemy {
+  enemyClass: string;
+  enemyHP: number;
+  enemyPoints: number;
+  name: string;
+}

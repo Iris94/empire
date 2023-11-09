@@ -1,5 +1,5 @@
 import React from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { GiEnergySword, GiHeartPlus } from 'react-icons/gi';
 import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 
