@@ -7,7 +7,7 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
     enemyClass,
     enemyHP,
     enemyImage,
-    enemyPoints
+    enemyAttack
 }) => {
 
 
@@ -29,7 +29,7 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
           <div className='text-red-500 w-fit h-fit'><GiHeartPlus /></div>
       </div>
       <div className='h-fit w-full flex justify-between items-center'>
-          <div className='text-zinc-400 w-fit h-fit'>{enemyPoints}</div>
+          <div className='text-zinc-400 w-fit h-fit'>{enemyAttack}</div>
           <div className='text-zinc-400 w-fit h-fit'><GiEnergySword /></div>
       </div>
     </>

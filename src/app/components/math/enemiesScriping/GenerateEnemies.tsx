@@ -21,7 +21,7 @@ const GenerateEnemies = ({
   enemyClass,
   enemyHP,
   enemyIndex,
-  enemyPoints
+  enemyAttack
 }: any) => {
   const correctEnemyImage = getCorrectImageForEnemy(enemyClass);
   
@@ -30,7 +30,7 @@ const GenerateEnemies = ({
         enemyImage={correctEnemyImage}
         enemyClass={enemyClass}
         enemyHP={enemyHP}
-        enemyPoints={enemyPoints}
+        enemyAttack={enemyAttack}
         enemyIndex={enemyIndex}
       />
   );

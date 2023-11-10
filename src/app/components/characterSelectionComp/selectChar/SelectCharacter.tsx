@@ -25,25 +25,25 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
     switch (characterClass) {
       case 'Knight':
         dispatch(setPlayerClass('Knight'));
-        dispatch(setPlayerHealth(125));
-        dispatch(setPlayerMana(75));
-        dispatch(setPlayerAttack(125));
+        dispatch(setPlayerHealth(200));
+        dispatch(setPlayerMana(130));
+        dispatch(setPlayerAttack(70));
         dispatch(setPlayerPoints(5));
         dispatch(setPlayerImage(Knight));
         break;
       case 'Mage':
         dispatch(setPlayerClass('Mage'));
-        dispatch(setPlayerHealth(75));
-        dispatch(setPlayerMana(150));
-        dispatch(setPlayerAttack(100));
+        dispatch(setPlayerHealth(150));
+        dispatch(setPlayerMana(200));
+        dispatch(setPlayerAttack(50));
         dispatch(setPlayerPoints(7));
         dispatch(setPlayerImage(Mage));
         break;
       case 'Assassin':
         dispatch(setPlayerClass('Assassin'));
-        dispatch(setPlayerHealth(100));
-        dispatch(setPlayerMana(100));
-        dispatch(setPlayerAttack(150));
+        dispatch(setPlayerHealth(150));
+        dispatch(setPlayerMana(150));
+        dispatch(setPlayerAttack(100));
         dispatch(setPlayerPoints(6));
         dispatch(setPlayerImage(Assassin));
         break;
@@ -62,27 +62,27 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         <PlayerCard
           playerClass="Knight"
           playerImage={Knight}
-          playerHealth={125}
-          playerMana={75}
-          playerAttack={125}
+          playerHealth={200}
+          playerMana={130}
+          playerAttack={70}
           playerPoints={5}
           onSelectCharacter={() => handleCharacterSelect('Knight')}
         />
         <PlayerCard
           playerClass="Mage"
           playerImage={Mage}
-          playerHealth={75}
-          playerMana={150}
-          playerAttack={100}
+          playerHealth={150}
+          playerMana={200}
+          playerAttack={50}
           playerPoints={7}
           onSelectCharacter={() => handleCharacterSelect('Mage')}
         />
         <PlayerCard
           playerClass="Assassin"
           playerImage={Assassin}
-          playerHealth={100}
-          playerMana={100}
-          playerAttack={150}
+          playerHealth={150}
+          playerMana={150}
+          playerAttack={100}
           playerPoints={6}
           onSelectCharacter={() => handleCharacterSelect('Assassin')}
         />

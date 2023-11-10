@@ -3,7 +3,7 @@ import enemyTypesData from '../../enemyTypes.json';
 interface EnemyType {
   enemyClass: string;
   enemyHP: number;
-  enemyPoints: number;
+  enemyAttack: number;
   name: string;
 }
 
@@ -21,17 +21,17 @@ const enemyStatsCalculator = (level : number) => {
     const enemy = enemyTypes[enemyName];
     const levelNumber = level
     const levelModifier = (levelNumber - 1) * 10;
-    const lowerBoundHP = Math.floor(enemy.enemyHP + levelModifier * 0.8);
-    const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.3);
-    const lowerBoundPT = Math.floor(enemy.enemyPoints + levelModifier * 0.9);
-    const upperBoundPT = Math.floor(enemy.enemyPoints + levelModifier * 1.1);
+    const lowerBoundHP = Math.floor(enemy.enemyHP + levelModifier * 0.9);
+    const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.5);
+    const lowerBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 0.9);
+    const upperBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 1.5);
     const updatedHP = Math.floor(lowerBoundHP + Math.random() * (upperBoundHP - lowerBoundHP + 1));
     const updatedPT = Math.floor(lowerBoundPT + Math.random() * (upperBoundPT - lowerBoundPT + 1));
 
     updatedEnemyTypes[enemyName] = {
       ...enemy,
       enemyHP: updatedHP,
-      enemyPoints: updatedPT,
+      enemyAttack: updatedPT,
     };
   }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RootState } from '@/app/GlobalRedux/store'
 import { useSelector } from 'react-redux'
 import PlayerCardTemplate from '../../batlegroundComp/player/playerHUD/subPlayerHUD/PlayerCardTemplate'
@@ -10,11 +10,10 @@ const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
   const { setAttackMode } = useGame()
 
-
   const handleClickAttack = () => {
     setAttackMode(true)
   }
-
+  
   return (
     <div
       className={

@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import NumberOfSpawns from '../../math/scriptForEnemies/numberOfSpawns'
-import GenerateEnemies from '../../math/scriptForEnemies/GenerateEnemies'
+import NumberOfSpawns from '../../math/enemiesScriping/NumberOfSpawns'
+import GenerateEnemies from '../../math/enemiesScriping/GenerateEnemies'
 import { useGame } from '@/app/context/GameContext'
-import getRandomEnemy from '../../math/scriptForEnemies/GetRandomEnemy'
+import getRandomEnemy from '../../math/enemiesScriping/GetRandomEnemy'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/app/GlobalRedux/store'
+import DiceRoll from '../../math/gameplayScripting/DiceRoll'
 
 const Enemies = () => {
   const { level } = useSelector((state : RootState) => state.levelReducer)
@@ -20,7 +21,7 @@ const Enemies = () => {
       enemyIndex={index}
       enemyHP={enemy.enemyHP}
       enemyClass={enemy.enemyClass}
-      enemyPoints={enemy.enemyPoints}
+      enemyAttack={enemy.enemyAttack}
     />
   ));
 

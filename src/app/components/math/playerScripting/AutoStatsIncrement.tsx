@@ -10,10 +10,10 @@ const AutoStatsIncrement = () => {
             playerHealth, 
             playerMana } = useSelector((state : RootState) => state.player);
 
-    const levelModifier = (playerLevel - 1) * 10;
+    const levelModifier = playerLevel * 10;
     const updatePlayerHP = Math.floor(playerHealth + levelModifier * 1.2);
     const updatePlayerMana = Math.floor(playerMana + levelModifier * 1.2);
-    const updatePlayerAttack = Math.floor(playerAttack + levelModifier * 1.2)
+    const updatePlayerAttack = Math.floor(playerAttack + levelModifier * 1.1)
 
     return {
         playerHealth: updatePlayerHP,

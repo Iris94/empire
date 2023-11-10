@@ -14,8 +14,7 @@ interface PlayerProps {
 const PlayerCardTemplate: React.FC<PlayerProps> = (
     { playerClass, playerImage }
 ) => {
-    const { attackMode } = useGame()
-    const {playerAttack} = AutoStatsIncrement()
+    const { attackMode, playerAttack } = useGame()
 
     let playerClassModifier = '';
     if (playerClass === "Knight") {

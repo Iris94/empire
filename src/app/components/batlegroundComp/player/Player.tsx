@@ -6,10 +6,10 @@ import ManaHUD from './playerHUD/ManaBar'
 import PlayerHUD from '../../math/gameplayScripting/PlayerInterface'
 import SpecialHUD from './playerHUD/SpecialBar'
 import GameplayHUD from './playerHUD/GameplayBar'
-import AutoStatsIncrement from '../../math/playerScripting/AutoStatsIncrement'
+import { useGame } from '@/app/context/GameContext'
 
 const Player = () => {
-  const { playerHealth, playerMana } = AutoStatsIncrement()
+  const { playerHealth, playerMana } = useGame()
 
   return (
     <div className='w-full h-1/2 z-10 flex flex-col'>

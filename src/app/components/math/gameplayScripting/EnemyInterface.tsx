@@ -5,22 +5,31 @@ import '../../batlegroundComp/enemies/enemies.css'
 import EnemiesTemplate from '../../batlegroundComp/enemies/EnemiesTemplate';
 import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 import { useGame } from '@/app/context/GameContext';
+import PlayerDamage from '../playerScripting/PlayerDamage';
+import DiceRoll from './DiceRoll';
 
 const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyClass,
   enemyHP,
-  enemyPoints,
+  enemyAttack,
   enemyImage,
   enemyIndex
 }) => {
-  const { attackMode, setAttackMode, generatedEnemies, updateGeneratedEnemies, setNextLevel, nextLevel} = useGame();
+  const { attackMode, setAttackMode, generatedEnemies, updateGeneratedEnemies, setNextLevel, playerAttack, playerPoints, nextLevel, setRollWhoStartFirst} = useGame();
 
   const interactWithEnemy = () => {
     if (attackMode) {
     const updatedEnemies = [...generatedEnemies];
     const updatedEnemy = { ...updatedEnemies[enemyIndex] };
     updatedEnemy.props = { ...updatedEnemy.props };
-    updatedEnemy.props.enemyHP = Math.max(updatedEnemy.props.enemyHP - 100, 0);
+
+    updatedEnemy.props.enemyHP = 
+      Math.max(
+        updatedEnemy.props.enemyHP 
+        -
+        PlayerDamage(updatedEnemy.props.enemyAttack, playerAttack)
+        , 0);
+
     updatedEnemies[enemyIndex] = updatedEnemy;
     updateGeneratedEnemies(updatedEnemies);
     setAttackMode(false);
@@ -33,6 +42,15 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
     }
   }, [generatedEnemies]);
 
+  useEffect(() => {
+    const diceResults = DiceRoll(playerPoints, playerAttack, generatedEnemies)
+    if (diceResults == 'player') {
+      setRollWhoStartFirst('player')
+    } else {
+      setRollWhoStartFirst('enemy')
+    }
+  }, [nextLevel])
+
   return (
     <div onClick={interactWithEnemy}
       className={`flex flex-col p-2 dark-blue-card h-fit 
@@ -42,7 +60,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
       <EnemiesTemplate
         enemyClass={enemyClass}
         enemyHP={enemyHP}
-        enemyPoints={enemyPoints}
+        enemyAttack={enemyAttack}
         enemyImage={enemyImage}
       />
     </div>
