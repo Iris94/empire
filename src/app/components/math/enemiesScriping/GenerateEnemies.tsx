@@ -20,16 +20,18 @@ const getCorrectImageForEnemy = (randomEnemyName: string) => {
 const GenerateEnemies = ({
   enemyClass,
   enemyHP,
+  initialHP,
   enemyIndex,
   enemyAttack
 }: any) => {
   const correctEnemyImage = getCorrectImageForEnemy(enemyClass);
-  
+
   return (
       <EnemyInterface
         enemyImage={correctEnemyImage}
         enemyClass={enemyClass}
         enemyHP={enemyHP}
+        initialHP={initialHP}
         enemyAttack={enemyAttack}
         enemyIndex={enemyIndex}
       />

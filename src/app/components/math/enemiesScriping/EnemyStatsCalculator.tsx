@@ -3,6 +3,7 @@ import enemyTypesData from '../../enemyTypes.json';
 interface EnemyType {
   enemyClass: string;
   enemyHP: number;
+  initialHP: number;
   enemyAttack: number;
   name: string;
 }
@@ -31,6 +32,7 @@ const enemyStatsCalculator = (level : number) => {
     updatedEnemyTypes[enemyName] = {
       ...enemy,
       enemyHP: updatedHP,
+      initialHP: updatedHP,
       enemyAttack: updatedPT,
     };
   }

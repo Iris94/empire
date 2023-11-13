@@ -3,19 +3,22 @@
       "name": "ChaosSoldier",
       "enemyClass": "Soldier",
       "enemyHP": 100,
-      "enemyAttack": 3000
+      "initialHP": 100,
+      "enemyAttack": 30
     },
     "ChaosArcher": {
       "name": "ChaosArcher",
       "enemyClass": "Archer",
       "enemyHP": 80,
-      "enemyAttack": 4000
+      "initialHP": 80,
+      "enemyAttack": 40
     },
     "ChaosMage": {
       "name": "ChaosMage",
       "enemyClass": "Mage",
       "enemyHP": 60,
-      "enemyAttack": 5000
+      "initialHP": 60,
+      "enemyAttack": 50
     }
   }
   

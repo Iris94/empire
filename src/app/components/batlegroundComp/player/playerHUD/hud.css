@@ -2,7 +2,6 @@
     width: 10vmax;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background: linear-gradient(180deg, rgba(255, 0, 13, 1) 0%, rgba(88, 1, 9, 1) 50%, rgba(41, 0, 0, 1) 100%);
 
     box-shadow:
     1rem 1rem 2.5rem black,
@@ -10,6 +9,7 @@
     inset 0rem 0rem 3rem darkred;
 
     font-size: 2vmin;
+    border: solid 0.1vmin black;
 }
 
 .diabloMana {

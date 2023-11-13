@@ -6,11 +6,12 @@ import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
     enemyClass,
     enemyHP,
+    initialHP,
     enemyImage,
-    enemyAttack
+    enemyAttack,
 }) => {
 
-
+  const healthPercentage = (enemyHP / initialHP) * 100;
   return (
     <>
         <div className='h-fit w-full '>
@@ -22,7 +23,8 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
       <div className='h-fit w-full'>
         <hr 
         id='enemyHP'
-        className='bg-red-500 border-none w-full h-1'/>
+        className='bg-red-500 border-none h-1'
+        style={{ width: `${healthPercentage}%` }}/>
       </div>
       <div className='h-fit w-full flex justify-between items-center'>
           <div className='text-red-500 w-fit h-fit'>{enemyHP}</div>

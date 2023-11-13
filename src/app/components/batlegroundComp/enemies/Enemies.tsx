@@ -7,7 +7,6 @@ import { useGame } from '@/app/context/GameContext'
 import getRandomEnemy from '../../math/enemiesScriping/GetRandomEnemy'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/app/GlobalRedux/store'
-import DiceRoll from '../../math/gameplayScripting/DiceRoll'
 
 const Enemies = () => {
   const { level } = useSelector((state : RootState) => state.levelReducer)
@@ -20,11 +19,12 @@ const Enemies = () => {
       key={index}
       enemyIndex={index}
       enemyHP={enemy.enemyHP}
+      initialHP={enemy.initialHP}
       enemyClass={enemy.enemyClass}
       enemyAttack={enemy.enemyAttack}
     />
   ));
-
+  
   useEffect(() => {
     if (generatedEnemies.length === 0 || nextLevel) {
       updateGeneratedEnemies(enemyComponents);
@@ -33,7 +33,7 @@ const Enemies = () => {
 
 
   return (
-    <div className='w-full h-1/2 z-10 flex justify-evenly flex-wrap p-5'>
+    <div className='w-full h-1/2 flex justify-evenly flex-wrap p-5 z-50'>
       {generatedEnemies}
     </div>
   )
