@@ -72,8 +72,8 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   return (
     <div onClick={interactWithEnemy}
       id={`enemy-card-${enemyIndex}`}
-      className={`flex flex-col p-2 dark-blue-card h-fit z-50 
-    enemies-width-css hover:cursor-pointer hover:scale-110
+      className={` flex-col p-2 dark-blue-card h-fit z-50 
+    enemies-width-css hover:cursor-pointer hover:scale-110 hidden
     ${attackMode ? 'player-attacks-enemies-css' : ''}`}
     >
       <EnemiesTemplate

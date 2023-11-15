@@ -7,26 +7,26 @@
 }
 
 .player-attacks-enemies-css {
-    animation: redAnimation 5s infinite ease-in-out;
+    animation: redAnimation 20s infinite ease-in-out;
 }
 
 
 @keyframes redAnimation {
     0%, 50% {
     box-shadow: 
-    0 0 20px white,
-    0 0 80px rgb(127, 92, 92),
-    0 0 150px rgb(152, 129, 129),
-    0 0 250px rgb(194, 3, 3),
-    inset 0 0 250px rgb(66, 1, 1);
+    0 0 1vmin white,
+    0 0 2vmin rgb(127, 92, 92),
+    0 0 3vmin rgb(152, 129, 129),
+    0 0 4vmin rgb(194, 3, 3),
+    inset 0 0 2vmin rgb(66, 1, 1);
 
 }   25%, 100% {
     box-shadow: 
-    0 0 50px white,
-    0 0 100px rgb(130, 4, 4),
-    0 0 200px rgb(165, 10, 10),
-    0 0 400px rgb(255, 0, 0),
-    inset 0 0 400px rgb(70, 0, 0);
+    0 0 1vmin white,
+    0 0 2vmin rgb(130, 4, 4),
+    0 0 3vmin rgb(165, 10, 10),
+    0 0 4vmin rgb(255, 0, 0),
+    inset 0 0 2vmin rgb(70, 0, 0);
 
 }  
 }
