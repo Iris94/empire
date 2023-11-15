@@ -18,11 +18,15 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyImage,
   enemyIndex
 }) => {
-  const { attackMode, playerHealth, setAttackMode, generatedEnemies, updateGeneratedEnemies, setNextLevel, playerAttack, setPlayerTurnBased, playerTurnBased, maxPlayerHealth} = useGame();
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, setEnemyCardId } = useGame();
   const dispatch = useDispatch()
 
-  const interactWithEnemy = () => {
+
+  const interactWithEnemy = (event: React.MouseEvent<HTMLDivElement>) => {
+    const enemyId = event.currentTarget.id;
+  
     if (attackMode) {
+      setEnemyCardId(enemyId)
       const updatedEnemies = [...generatedEnemies];
       const updatedEnemy = { ...updatedEnemies[enemyIndex] };
       updatedEnemy.props = { ...updatedEnemy.props };
@@ -36,6 +40,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
 
       updatedEnemies[enemyIndex] = updatedEnemy;
       updateGeneratedEnemies(updatedEnemies);
+      setEnemyCardId('')
       setAttackMode(false);
     }
   }
@@ -66,6 +71,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
 
   return (
     <div onClick={interactWithEnemy}
+      id={`enemy-card-${enemyIndex}`}
       className={`flex flex-col p-2 dark-blue-card h-fit z-50 
     enemies-width-css hover:cursor-pointer hover:scale-110
     ${attackMode ? 'player-attacks-enemies-css' : ''}`}
@@ -77,6 +83,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyAttack={enemyAttack}
         enemyImage={enemyImage}
       />
+
     </div>
   )
 }

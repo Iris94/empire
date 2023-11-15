@@ -14,7 +14,7 @@ const Player = () => {
   const { playerHealth, playerMana, playerTurnBased, setPlayerTurnBased, maxPlayerHealth } = useGame()
 
   return (
-    <div className='w-full h-1/2 z-10 flex flex-col overflow-hidden'>
+    <div className='w-full h-1/2 z-10 flex flex-col'>
       <div className='w-full h-full z-20'>
 
       </div>
@@ -31,8 +31,8 @@ const Player = () => {
         playerTurnBased={playerTurnBased} />
 
       <EndTurnScreen 
-      playerTurnBased={playerTurnBased}
-      setPlayerTurnBased={setPlayerTurnBased} />
+        playerTurnBased={playerTurnBased}
+        setPlayerTurnBased={setPlayerTurnBased} />
     </div>
   )
 }
