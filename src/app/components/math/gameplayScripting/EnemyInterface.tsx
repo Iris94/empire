@@ -18,30 +18,28 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyImage,
   enemyIndex
 }) => {
-  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, setEnemyCardId } = useGame();
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased } = useGame();
   const dispatch = useDispatch()
 
 
-  const interactWithEnemy = (event: React.MouseEvent<HTMLDivElement>) => {
-    const enemyId = event.currentTarget.id;
-  
+  const interactWithEnemy = () => {
     if (attackMode) {
-      setEnemyCardId(enemyId)
-      const updatedEnemies = [...generatedEnemies];
-      const updatedEnemy = { ...updatedEnemies[enemyIndex] };
-      updatedEnemy.props = { ...updatedEnemy.props };
+      setTimeout(() => {
+        const updatedEnemies = [...generatedEnemies];
+        const updatedEnemy = { ...updatedEnemies[enemyIndex] };
+        updatedEnemy.props = { ...updatedEnemy.props };
 
-      updatedEnemy.props.enemyHP =
-        Math.round(Math.max(
-          updatedEnemy.props.enemyHP
-          -
-          PlayerDamage(updatedEnemy.props.enemyAttack, playerAttack)
-          , 0));
+        updatedEnemy.props.enemyHP =
+          Math.round(Math.max(
+            updatedEnemy.props.enemyHP
+            -
+            PlayerDamage(updatedEnemy.props.enemyAttack, playerAttack)
+            , 0));
 
-      updatedEnemies[enemyIndex] = updatedEnemy;
-      updateGeneratedEnemies(updatedEnemies);
-      setEnemyCardId('')
-      setAttackMode(false);
+        updatedEnemies[enemyIndex] = updatedEnemy;
+        updateGeneratedEnemies(updatedEnemies);
+        // setAttackMode(false);
+      }, 5000);
     }
   }
 
@@ -71,9 +69,8 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
 
   return (
     <div onClick={interactWithEnemy}
-      id={`enemy-card-${enemyIndex}`}
-      className={` flex-col p-2 dark-blue-card h-fit z-50 
-    enemies-width-css hover:cursor-pointer hover:scale-110 hidden
+      className={`flex flex-col p-2 dark-blue-card h-fit 
+    enemies-width-css hover:cursor-pointer enemy-click-class
     ${attackMode ? 'player-attacks-enemies-css' : ''}`}
     >
       <EnemiesTemplate

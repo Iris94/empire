@@ -8,7 +8,7 @@ import PlayerSword from '../../svg/playerSword/PlayerSword'
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
-  const { setAttackMode, playerTurnBased, attackMode, enemyCoordinates, enemyCardId, enemyParentId } = useGame();
+  const { setAttackMode, playerTurnBased, attackMode,} = useGame();
 
 
   const handleClickAttack = () => {
@@ -29,9 +29,7 @@ const PlayerInterface = () => {
       {attackMode ?
         <PlayerSword 
         attackMode={attackMode} 
-        enemyCoordinates={enemyCoordinates}
-        enemyCardId={enemyCardId}
-        enemyParentId={enemyParentId} /> : ''}
+       /> : ''}
     </div>
   )
 }

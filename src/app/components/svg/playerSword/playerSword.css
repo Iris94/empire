@@ -1,8 +1,8 @@
 .sword-style-css {
     fill: lightcyan;
     filter: drop-shadow(0 0 5px lightblue) drop-shadow(0 0 10px lightblue);
-    width: 6vmax;
+    width: 8vmax;
     position: absolute;
     align-self: center;
-    z-index: 900;
+    z-index: 50;
   }

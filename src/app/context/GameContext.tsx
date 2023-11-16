@@ -21,18 +21,12 @@ interface GameContextType {
   maxPlayerHealth: number;
   generatedEnemies: any[];
   initialEnemyHP: any[];
-  enemyCoordinates: any[];
-  enemyCardId: string;
-  enemyParentId: string;
-  setEnemyParentId: React.Dispatch<React.SetStateAction<string>>;
-  setEnemyCardId: React.Dispatch<React.SetStateAction<string>>;
   setInitialEnemyHP: React.Dispatch<React.SetStateAction<any>>;
   setPlayerTurnBased: React.Dispatch<React.SetStateAction<any>>;
   setRollWhoStartFirst: React.Dispatch<React.SetStateAction<string>>;
   setNextLevel: React.Dispatch<React.SetStateAction<boolean>>;
   setAttackMode: React.Dispatch<React.SetStateAction<boolean>>;
   updateGeneratedEnemies: (newEnemies: any) => void;
-  setEnemyCoordinates: React.Dispatch<React.SetStateAction<any>>
 }
 
 const defaultValue: GameContextType = {
@@ -47,18 +41,12 @@ const defaultValue: GameContextType = {
   maxPlayerHealth: 0,
   generatedEnemies: [],
   initialEnemyHP: [],
-  enemyCoordinates: [],
-  enemyCardId: '',
-  enemyParentId: '',
-  setEnemyParentId: () => {},
-  setEnemyCardId: () => {},
   setInitialEnemyHP: () => {},
   setPlayerTurnBased: () => { },
   setRollWhoStartFirst: () => { },
   setNextLevel: () => { },
   setAttackMode: () => { },
   updateGeneratedEnemies: () => { },
-  setEnemyCoordinates: () => {}
 };
 
 const GameContext = createContext(defaultValue);
@@ -71,9 +59,7 @@ export function GameProvider({ children }: any) {
   const [playerTurnBased, setPlayerTurnBased] = useState(true);
   const [maxPlayerHealth, setMaxPlayerHealth] = useState(0);
   const [initialEnemyHP, setInitialEnemyHP] = useState([]);
-  const [enemyCoordinates, setEnemyCoordinates] = useState([]);
-  const [enemyCardId, setEnemyCardId] = useState('');
-  const [enemyParentId, setEnemyParentId] = useState('');
+
   
   const { level } = useSelector((state: RootState) => state.levelReducer)
   const { playerAttack,
@@ -126,18 +112,12 @@ export function GameProvider({ children }: any) {
         maxPlayerHealth,
         generatedEnemies,
         initialEnemyHP,
-        enemyCoordinates,
-        enemyCardId,
-        enemyParentId,
-        setEnemyParentId,
-        setEnemyCardId,
         setInitialEnemyHP,
         setPlayerTurnBased,
         setRollWhoStartFirst,
         setNextLevel,
         setAttackMode,
         updateGeneratedEnemies,
-        setEnemyCoordinates
       }}>
       {children}
     </GameContext.Provider>
