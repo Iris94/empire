@@ -12,7 +12,7 @@ const Enemies = () => {
   const { level } = useSelector((state : RootState) => state.levelReducer)
   const { updateGeneratedEnemies, generatedEnemies, nextLevel } = useGame()
   const numberOfEnemySpawns = NumberOfSpawns(level);
-  const randomEnemies = Array.from({ length: numberOfEnemySpawns }, (_, index) => getRandomEnemy(level));
+  const randomEnemies = Array.from({ length: 1 }, (_, index) => getRandomEnemy(level));
 
   const enemyComponents = randomEnemies.map((enemy, index) => (
     <GenerateEnemies
@@ -34,7 +34,7 @@ const Enemies = () => {
 
   return (
     <div 
-      className='w-full h-1/2 flex justify-evenly flex-wrap p-5 z-50'>
+      className='w-full h-1/2 flex justify-evenly flex-wrap p-5 z-20 relative'>
       {generatedEnemies}
     </div>
   )

@@ -18,7 +18,7 @@ const PlayerInterface = () => {
   return (
     <div
       className={
-        `player-width-css h-fit relative
+        `player-width-css h-fit 
         flex flex-col-reverse p-2 hover:cursor-pointer`}
       onClick={playerTurnBased ? handleClickAttack : undefined}
     >

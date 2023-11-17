@@ -39,7 +39,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         updatedEnemies[enemyIndex] = updatedEnemy;
         updateGeneratedEnemies(updatedEnemies);
         // setAttackMode(false);
-      }, 5000);
+      }, 50000);
     }
   }
 
@@ -80,7 +80,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyAttack={enemyAttack}
         enemyImage={enemyImage}
       />
-
+      
     </div>
   )
 }

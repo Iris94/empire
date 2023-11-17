@@ -8,7 +8,7 @@ const Battleground = () => {
 
   return (
     <GameProvider>
-    <main className='w-screen h-screen flex flex-col'>
+    <main className='w-screen h-screen flex flex-col overflow-hidden'>
       <Enemies />
       <World />
       <Player />
