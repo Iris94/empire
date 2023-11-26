@@ -21,6 +21,8 @@ interface GameContextType {
   maxPlayerHealth: number;
   generatedEnemies: any[];
   initialEnemyHP: any[];
+  initialPlayerAP: number;
+  setInitialPlayerAP: React.Dispatch<React.SetStateAction<number>>;
   setInitialEnemyHP: React.Dispatch<React.SetStateAction<any>>;
   setPlayerTurnBased: React.Dispatch<React.SetStateAction<any>>;
   setRollWhoStartFirst: React.Dispatch<React.SetStateAction<string>>;
@@ -41,6 +43,8 @@ const defaultValue: GameContextType = {
   maxPlayerHealth: 0,
   generatedEnemies: [],
   initialEnemyHP: [],
+  initialPlayerAP: 0,
+  setInitialPlayerAP: () => {},
   setInitialEnemyHP: () => {},
   setPlayerTurnBased: () => { },
   setRollWhoStartFirst: () => { },
@@ -59,13 +63,13 @@ export function GameProvider({ children }: any) {
   const [playerTurnBased, setPlayerTurnBased] = useState(true);
   const [maxPlayerHealth, setMaxPlayerHealth] = useState(0);
   const [initialEnemyHP, setInitialEnemyHP] = useState([]);
-
+  const [initialPlayerAP, setInitialPlayerAP] = useState(0);
   
   const { level } = useSelector((state: RootState) => state.levelReducer)
   const { playerAttack,
-    playerHealth,
-    playerMana,
-    playerPoints } = useSelector((state: RootState) => state.player)
+          playerHealth,
+          playerMana,
+          playerPoints } = useSelector((state: RootState) => state.player)
     
   const dispatch = useDispatch()
   const updatedPlayerStats = AutoStatsIncrement();
@@ -74,8 +78,10 @@ export function GameProvider({ children }: any) {
     setGeneratedEnemies(newEnemies);
   };
 
+
   useEffect(() => {
     setMaxPlayerHealth(playerHealth)
+    setInitialPlayerAP(playerPoints)
     setPlayerTurnBased(true)
     const diceResults = DiceRoll(playerPoints, playerAttack, generatedEnemies);
     if (diceResults === 'player') {
@@ -112,6 +118,8 @@ export function GameProvider({ children }: any) {
         maxPlayerHealth,
         generatedEnemies,
         initialEnemyHP,
+        initialPlayerAP,
+        setInitialPlayerAP,
         setInitialEnemyHP,
         setPlayerTurnBased,
         setRollWhoStartFirst,

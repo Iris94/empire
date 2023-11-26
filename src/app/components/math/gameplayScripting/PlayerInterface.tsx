@@ -8,15 +8,20 @@ import PlayerSword from '../../svg/playerSword/PlayerSword'
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
-  const { setAttackMode, playerTurnBased, attackMode,} = useGame();
+  const { setAttackMode, playerTurnBased, attackMode, initialPlayerAP, playerPoints} = useGame();
 
 
   const handleClickAttack = () => {
-    setAttackMode((prevAttackMode) => !prevAttackMode);
+    if (playerPoints >= 2) {
+      setAttackMode((prevAttackMode) => !prevAttackMode);
+    } else {
+      console.log('No points')
+    }
   }
 
   return (
     <div
+      id='player-sword-container'
       className={
         `player-width-css h-fit 
         flex flex-col-reverse p-2 hover:cursor-pointer`}
@@ -29,6 +34,7 @@ const PlayerInterface = () => {
       {attackMode ?
         <PlayerSword 
         attackMode={attackMode} 
+        playerClass={playerClass}
        /> : ''}
     </div>
   )

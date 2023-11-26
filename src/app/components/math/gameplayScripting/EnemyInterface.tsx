@@ -1,13 +1,13 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../batlegroundComp/enemies/enemies.css'
 import EnemiesTemplate from '../../batlegroundComp/enemies/EnemiesTemplate';
 import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 import { useGame } from '@/app/context/GameContext';
 import PlayerDamage from '../playerScripting/PlayerDamage';
 import { useDispatch } from 'react-redux';
-import { setPlayerHealth } from '@/app/GlobalRedux/Features/player/playerSlice';
+import { setPlayerHealth, setPlayerPoints } from '@/app/GlobalRedux/Features/player/playerSlice';
 import { EnemyAttackMovement } from '../enemiesScriping/EnemyAttackMovement';
 
 const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
@@ -18,9 +18,8 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyImage,
   enemyIndex
 }) => {
-  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased } = useGame();
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints} = useGame();
   const dispatch = useDispatch()
-
 
   const interactWithEnemy = () => {
     if (attackMode) {
@@ -37,9 +36,10 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
             , 0));
 
         updatedEnemies[enemyIndex] = updatedEnemy;
+        dispatch(setPlayerPoints(playerPoints - 2))
         updateGeneratedEnemies(updatedEnemies);
-        // setAttackMode(false);
-      }, 50000);
+        setAttackMode(false)
+      }, 2000);
     }
   }
 
@@ -80,7 +80,6 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyAttack={enemyAttack}
         enemyImage={enemyImage}
       />
-      
     </div>
   )
 }
