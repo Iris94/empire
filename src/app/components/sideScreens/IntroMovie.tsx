@@ -85,7 +85,6 @@ const IntroMovie = ({ disableIntro }: { disableIntro: (value: boolean) => void }
         timeline.to(textSlideTwo, { opacity: 0}, '+=2')
         timeline.to(textSlideThree, { opacity: 1}, '-=1')
         timeline.add(playEndNarration, '+=2');
-
         timeline.to(march, { scale: 1.3, duration: 45, ease: 'power2.inOut'}, '-=3');
         timeline.call(endIntro)
 
