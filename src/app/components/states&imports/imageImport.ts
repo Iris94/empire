@@ -12,6 +12,12 @@ import Map10 from '../../../../public/10.jpg';
 import ChaosSoldier from '../../../../public/demonSoldier.jpg';
 import ChaosArcher from '../../../../public/demonArcher.jpg';
 import ChaosMage from '../../../../public/demonMage.jpg';
+import IntroCastle from '../../../../public/windBlow.png';
+import IntroFlag from '../../../../public/flagBurn.png';
+import IntroSky from '../../../../public/skyTear.png';
+import IntroChaos from '../../../../public/chaosArmy.png';
+import IntroKing from '../../../../public/kingSpeech.png';
+import IntroMarch from '../../../../public/armyMarch.png';
 
 export { 
     Knight, 
@@ -28,4 +34,10 @@ export {
     ChaosArcher,
     ChaosMage,
     ChaosSoldier,
+    IntroCastle,
+    IntroChaos,
+    IntroFlag,
+    IntroKing,
+    IntroMarch,
+    IntroSky
 };

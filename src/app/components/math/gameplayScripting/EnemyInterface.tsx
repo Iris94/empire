@@ -9,6 +9,7 @@ import PlayerDamage from '../playerScripting/PlayerDamage';
 import { useDispatch } from 'react-redux';
 import { setPlayerHealth, setPlayerPoints } from '@/app/GlobalRedux/Features/player/playerSlice';
 import { EnemyAttackMovement } from '../enemiesScriping/EnemyAttackMovement';
+import EnemySword from '../../svg/enemy/enemySword/EnemySword';
 
 const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyClass,
@@ -80,6 +81,11 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyAttack={enemyAttack}
         enemyImage={enemyImage}
       />
+
+      {!playerTurnBased 
+          ? <EnemySword 
+          playerTurnBased={playerTurnBased}
+          enemyIndex={enemyIndex} /> : ''}
     </div>
   )
 }

@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux'
 import PlayerCardTemplate from '../../batlegroundComp/player/playerHUD/subPlayerHUD/PlayerCardTemplate'
 import '../../batlegroundComp/player/playerHUD/hud.css'
 import { useGame } from '@/app/context/GameContext'
-import PlayerSword from '../../svg/playerSword/PlayerSword'
+import PlayerSword from '../../svg/player/playerSword/PlayerSword'
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
-  const { setAttackMode, playerTurnBased, attackMode, initialPlayerAP, playerPoints} = useGame();
+  const { setAttackMode, playerTurnBased, attackMode, initialPlayerAP, playerPoints } = useGame();
 
 
   const handleClickAttack = () => {
@@ -32,10 +32,10 @@ const PlayerInterface = () => {
         playerImage={playerImage}
       />
       {attackMode ?
-        <PlayerSword 
-        attackMode={attackMode} 
-        playerClass={playerClass}
-       /> : ''}
+        <PlayerSword
+          attackMode={attackMode}
+          playerClass={playerClass}
+        /> : ''}
     </div>
   )
 }

@@ -1,0 +1,8 @@
+.enemy-sword {
+    fill: lightpink;
+    filter: drop-shadow(0 0 1vmin rgb(255, 0, 0)) drop-shadow(0 0 2vmin rgb(239, 111, 111));
+    position: absolute;
+    width: 10vmin;
+    align-self: center;
+    height: fit-content;
+}

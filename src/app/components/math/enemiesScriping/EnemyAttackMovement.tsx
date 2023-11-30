@@ -25,7 +25,7 @@ export const EnemyAttackMovement = async (
       if (index < enemies.length) {
         await attackEnemy(enemies[index]);
         await attackNextEnemy(index + 1);
-      }
+      } 
     };
   
     await attackNextEnemy(0);

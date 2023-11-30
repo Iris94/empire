@@ -22,6 +22,8 @@ interface GameContextType {
   generatedEnemies: any[];
   initialEnemyHP: any[];
   initialPlayerAP: number;
+  playerCoordinates: number;
+  setPlayerCoordinates: React.Dispatch<React.SetStateAction<number>>;
   setInitialPlayerAP: React.Dispatch<React.SetStateAction<number>>;
   setInitialEnemyHP: React.Dispatch<React.SetStateAction<any>>;
   setPlayerTurnBased: React.Dispatch<React.SetStateAction<any>>;
@@ -44,6 +46,8 @@ const defaultValue: GameContextType = {
   generatedEnemies: [],
   initialEnemyHP: [],
   initialPlayerAP: 0,
+  playerCoordinates: 0,
+  setPlayerCoordinates: () => {},
   setInitialPlayerAP: () => {},
   setInitialEnemyHP: () => {},
   setPlayerTurnBased: () => { },
@@ -64,6 +68,7 @@ export function GameProvider({ children }: any) {
   const [maxPlayerHealth, setMaxPlayerHealth] = useState(0);
   const [initialEnemyHP, setInitialEnemyHP] = useState([]);
   const [initialPlayerAP, setInitialPlayerAP] = useState(0);
+  const [playerCoordinates, setPlayerCoordinates] = useState(0);
   
   const { level } = useSelector((state: RootState) => state.levelReducer)
   const { playerAttack,
@@ -119,6 +124,8 @@ export function GameProvider({ children }: any) {
         generatedEnemies,
         initialEnemyHP,
         initialPlayerAP,
+        playerCoordinates,
+        setPlayerCoordinates,
         setInitialPlayerAP,
         setInitialEnemyHP,
         setPlayerTurnBased,

@@ -1,0 +1,29 @@
+.sword-style-knight {
+    fill: lightgoldenrodyellow;
+    filter: drop-shadow(0 0 1vmin yellow) drop-shadow(0 0 2vmin rgb(239, 239, 111));
+    width: 8vmax;
+    align-self: center;
+  }
+
+.sword-style-mage {
+    fill: rgb(255, 213, 198);
+    filter: drop-shadow(0 0 1vmin orangered) drop-shadow(0 0 2vmin rgb(224, 154, 3));
+    width: 8vmax;
+    align-self: center;
+  }
+
+.sword-style-assassin {
+    fill: rgb(255, 220, 255);
+    filter: drop-shadow(0 0 1vmin purple) drop-shadow(0 0 2vmin violet);
+    width: 8vmax;
+    align-self: center;
+  }
+
+.sword-ending-animation {
+  width: 50vmin;
+  height: 50vmin;
+  position: absolute;
+  align-self: center;
+  opacity: 0;
+  top: 40%;
+}
