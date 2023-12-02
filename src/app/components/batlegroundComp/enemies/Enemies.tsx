@@ -12,7 +12,7 @@ const Enemies = () => {
   const { level } = useSelector((state : RootState) => state.levelReducer)
   const { updateGeneratedEnemies, generatedEnemies, nextLevel } = useGame()
   const numberOfEnemySpawns = NumberOfSpawns(level);
-  const randomEnemies = Array.from({ length: 5 }, (_, index) => getRandomEnemy(level));
+  const randomEnemies = Array.from({ length: 3 }, (_, index) => getRandomEnemy(level));
 
   const enemyComponents = randomEnemies.map((enemy, index) => (
     <GenerateEnemies

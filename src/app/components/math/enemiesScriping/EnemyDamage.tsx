@@ -2,7 +2,8 @@
 
 export default function EnemyDamage (
     enemyOffense : any,
-    playerDeffense : number) {
+    playerDeffense : number,
+    enemyHP : number) {
        
     let returnedDamage : number = 0;
     const excessOffense : number = Math.max(enemyOffense - playerDeffense, 0); 
@@ -13,7 +14,7 @@ export default function EnemyDamage (
     const missChance: number = negativeOffense / 100;
     const isMissedHit: boolean = Math.random() <= missChance
     
-    if (enemyOffense > playerDeffense) {
+  if (enemyOffense > playerDeffense) {
         if (isCriticalHit) {
             returnedDamage = enemyOffense + (excessOffense * criticalChance);
         } else {

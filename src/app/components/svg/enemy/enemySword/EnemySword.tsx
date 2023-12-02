@@ -7,7 +7,7 @@ import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 gsap.registerPlugin(MotionPathPlugin);
 
-const EnemySword = ({ playerTurnBased, enemyIndex }: { playerTurnBased: boolean; enemyIndex : number }) => {
+const EnemySword = ({ playerTurnBased, enemyIndex }: { playerTurnBased: boolean; enemyIndex : number; }) => {
   const enemySwordRef = useRef(null);
 
   useEffect(() => {

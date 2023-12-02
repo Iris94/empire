@@ -22,7 +22,7 @@ const GenerateEnemies = ({
   enemyHP,
   initialHP,
   enemyIndex,
-  enemyAttack
+  enemyAttack,
 }: any) => {
   const correctEnemyImage = getCorrectImageForEnemy(enemyClass);
 

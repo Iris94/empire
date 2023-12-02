@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DiceRoll from "../components/math/gameplayScripting/DiceRoll";
 import AutoStatsIncrement from "../components/math/playerScripting/AutoStatsIncrement";
 import { setLevel } from "../GlobalRedux/Features/level/levelSlice";
-import { setPlayerAttack, setPlayerHealth, setPlayerMana } from "../GlobalRedux/Features/player/playerSlice";
+import { setPlayerAttack, setPlayerHealth, setPlayerMana, setPlayerPoints } from "../GlobalRedux/Features/player/playerSlice";
 
 
 interface GameContextType {
@@ -83,7 +83,6 @@ export function GameProvider({ children }: any) {
     setGeneratedEnemies(newEnemies);
   };
 
-
   useEffect(() => {
     setMaxPlayerHealth(playerHealth)
     setInitialPlayerAP(playerPoints)
@@ -104,6 +103,7 @@ export function GameProvider({ children }: any) {
       dispatch(setPlayerAttack(updatedPlayerStats.playerAttack))
       dispatch(setPlayerHealth(updatedPlayerStats.playerHealth))
       dispatch(setPlayerMana(updatedPlayerStats.playerMana))
+      dispatch(setPlayerPoints(initialPlayerAP))
       setNextLevel(false)
     }
   }, [nextLevel])

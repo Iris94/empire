@@ -28,27 +28,35 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         const updatedEnemies = [...generatedEnemies];
         const updatedEnemy = { ...updatedEnemies[enemyIndex] };
         updatedEnemy.props = { ...updatedEnemy.props };
-
+  
         updatedEnemy.props.enemyHP =
           Math.round(Math.max(
-            updatedEnemy.props.enemyHP
-            -
+            updatedEnemy.props.enemyHP -
             PlayerDamage(updatedEnemy.props.enemyAttack, playerAttack)
             , 0));
-
+  
         updatedEnemies[enemyIndex] = updatedEnemy;
-        dispatch(setPlayerPoints(playerPoints - 2))
-        updateGeneratedEnemies(updatedEnemies);
-        setAttackMode(false)
+        updatedEnemies.splice(enemyIndex, 1);
+        const newLivingEnemies = updatedEnemies.map((enemy, index) => {
+          const updatedEnemy = { ...enemy };
+          updatedEnemy.props = { ...updatedEnemy.props };
+          updatedEnemy.props.enemyIndex = index;
+          return updatedEnemy;
+        });
+  
+        dispatch(setPlayerPoints(playerPoints - 2));
+        updateGeneratedEnemies(newLivingEnemies);
+        setAttackMode(false);
       }, 2000);
     }
-  }
+  };
+  
 
   useEffect(() => {
     if (generatedEnemies.every(enemy => enemy.props.enemyHP === 0)) {
       dispatch(setPlayerHealth(maxPlayerHealth))
       setNextLevel(true)
-    }
+    } 
   }, [generatedEnemies]);
 
   useEffect(() => {
@@ -63,10 +71,9 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         setPlayerTurnBased(true)
       }
     }
-
     handleEnemyAttack()
   }, [playerTurnBased])
-
+  console.log(enemyIndex)
 
   return (
     <div onClick={interactWithEnemy}
@@ -82,10 +89,12 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyImage={enemyImage}
       />
 
-      {!playerTurnBased 
-          ? <EnemySword 
+      {!playerTurnBased  && 
+        <EnemySword 
           playerTurnBased={playerTurnBased}
-          enemyIndex={enemyIndex} /> : ''}
+          enemyIndex={enemyIndex}
+        />
+      }
     </div>
   )
 }
