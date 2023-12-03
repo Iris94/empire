@@ -5,6 +5,7 @@ interface EnemyType {
   enemyHP: number;
   initialHP: number;
   enemyAttack: number;
+  enemyArmor: number;
   name: string;
 }
 
@@ -26,14 +27,18 @@ const enemyStatsCalculator = (level : number) => {
     const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.5);
     const lowerBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 0.9);
     const upperBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 1.5);
+    const lowerBoundArmor = Math.floor(enemy.enemyArmor + levelModifier * 0.9);
+    const upperBoundArmor = Math.floor(enemy.enemyArmor + levelModifier * 1.5);
     const updatedHP = Math.floor(lowerBoundHP + Math.random() * (upperBoundHP - lowerBoundHP + 1));
     const updatedPT = Math.floor(lowerBoundPT + Math.random() * (upperBoundPT - lowerBoundPT + 1));
+    const updatedArmor = Math.floor(lowerBoundArmor + Math.random() * (upperBoundArmor - lowerBoundArmor + 1));
 
     updatedEnemyTypes[enemyName] = {
       ...enemy,
       enemyHP: updatedHP,
       initialHP: updatedHP,
       enemyAttack: updatedPT,
+      enemyArmor: updatedArmor
     };
   }
 

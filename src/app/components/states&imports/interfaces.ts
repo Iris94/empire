@@ -7,6 +7,7 @@ export interface EnemyInterfaceProps {
     enemyAttack: number;
     enemyImage: StaticImageData; 
     enemyIndex?: any;
+    enemyArmor: number;
   }
 
 export interface Enemy {
@@ -15,4 +16,5 @@ export interface Enemy {
   initialHP: number;
   enemyAttack: number;
   name: string;
+  enemyArmor: number
 }

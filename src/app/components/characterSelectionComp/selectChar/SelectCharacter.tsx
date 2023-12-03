@@ -10,6 +10,7 @@ import {
   setPlayerMana,
   setPlayerAttack,
   setPlayerPoints,
+  setPlayerArmor,
   setPlayerImage,
 } from '@/app/GlobalRedux/Features/player/playerSlice';
 
@@ -21,13 +22,13 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
   const dispatch = useDispatch();
 
   const handleCharacterSelect = (characterClass: string) => {
-    // Dispatch the selected character's data
     switch (characterClass) {
       case 'Knight':
         dispatch(setPlayerClass('Knight'));
         dispatch(setPlayerHealth(200));
         dispatch(setPlayerMana(130));
-        dispatch(setPlayerAttack(70));
+        dispatch(setPlayerAttack(30));
+        dispatch(setPlayerArmor(60));
         dispatch(setPlayerPoints(5));
         dispatch(setPlayerImage(Knight));
         break;
@@ -35,7 +36,8 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         dispatch(setPlayerClass('Mage'));
         dispatch(setPlayerHealth(150));
         dispatch(setPlayerMana(200));
-        dispatch(setPlayerAttack(50));
+        dispatch(setPlayerAttack(45));
+        dispatch(setPlayerArmor(45));
         dispatch(setPlayerPoints(7));
         dispatch(setPlayerImage(Mage));
         break;
@@ -43,7 +45,8 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
         dispatch(setPlayerClass('Assassin'));
         dispatch(setPlayerHealth(150));
         dispatch(setPlayerMana(150));
-        dispatch(setPlayerAttack(100));
+        dispatch(setPlayerAttack(60));
+        dispatch(setPlayerArmor(30));
         dispatch(setPlayerPoints(6));
         dispatch(setPlayerImage(Assassin));
         break;
@@ -63,8 +66,9 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
           playerClass="Knight"
           playerImage={Knight}
           playerHealth={200}
-          playerMana={130}
-          playerAttack={70}
+          playerMana={120}
+          playerAttack={30}
+          playerArmor={60}
           playerPoints={5}
           onSelectCharacter={() => handleCharacterSelect('Knight')}
         />
@@ -73,7 +77,8 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
           playerImage={Mage}
           playerHealth={150}
           playerMana={200}
-          playerAttack={50}
+          playerAttack={45}
+          playerArmor={45}
           playerPoints={7}
           onSelectCharacter={() => handleCharacterSelect('Mage')}
         />
@@ -82,7 +87,8 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
           playerImage={Assassin}
           playerHealth={150}
           playerMana={150}
-          playerAttack={100}
+          playerAttack={60}
+          playerArmor={30}
           playerPoints={6}
           onSelectCharacter={() => handleCharacterSelect('Assassin')}
         />

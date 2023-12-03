@@ -2,7 +2,7 @@ import EnemyDamage from "./EnemyDamage";
 
 export const EnemyAttackMovement = async (
     enemies: any,
-    playerAttack : number,
+    playerArmor : number,
     playerHealth : number,
     setPlayerHealth : any,
     dispatch : any) => {
@@ -11,7 +11,7 @@ export const EnemyAttackMovement = async (
 
     const attackEnemy = async (enemy: any) => {
       return new Promise<void>((resolve) => {
-        const eachDamage = EnemyDamage(enemy.props.enemyAttack, playerAttack, enemy.props.enemyHP)
+        const eachDamage = EnemyDamage(enemy.props.enemyAttack, playerArmor, enemy.props.enemyHP)
         setTimeout(() => {
           damage += eachDamage;
           const roundedDamage = Math.round(playerHealth - damage)

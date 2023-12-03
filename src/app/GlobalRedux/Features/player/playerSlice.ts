@@ -8,6 +8,7 @@ export interface PlayerState {
   playerHealth: number;
   playerMana: number;
   playerAttack: number;
+  playerArmor: number;
   playerPoints: number;
 }
 
@@ -17,6 +18,7 @@ const initialState: PlayerState = {
   playerMana: 0,
   playerAttack: 0,
   playerPoints: 0,
+  playerArmor: 0,
   playerImage: '',
 };
 
@@ -39,6 +41,9 @@ const playerSlice = createSlice({
     setPlayerAttack: (state, action: PayloadAction<number>) => {
       state.playerAttack = action.payload;
     },
+    setPlayerArmor: (state, action: PayloadAction<number>) => {
+      state.playerArmor = action.payload;
+    },
     setPlayerPoints: (state, action: PayloadAction<number>) => {
       state.playerPoints = action.payload;
     },
@@ -51,6 +56,7 @@ export const {
   setPlayerHealth,
   setPlayerMana,
   setPlayerAttack,
+  setPlayerArmor,
   setPlayerPoints,
 } = playerSlice.actions;
 

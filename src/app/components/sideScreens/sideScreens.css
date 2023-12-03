@@ -2,6 +2,37 @@
     animation: phoneRotation 2s infinite ease-in-out
 }
 
+.death-section {
+    z-index: 500;
+}
+
+.death-text {
+    font-size: 4vmax;
+    animation: deathText 3s ease-in-out forwards;
+    opacity: 0;
+}
+
+.death-box {
+    opacity: 0;
+    animation: deathBox 1s ease-in forwards
+}
+
+@keyframes deathBox {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes deathText {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
 @keyframes phoneRotation {
     0%, 100% {
         transform: rotate(0deg);

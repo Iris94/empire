@@ -5,7 +5,7 @@ import { Knight, Mage, Assassin } from '@/app/components/states&imports/imageImp
 import Image from 'next/image';
 
 const AboutBasicInfo = () => {
-    const { playerClass, playerHealth, playerMana, playerAttack, playerPoints } = useSelector(
+    const { playerClass, playerHealth, playerMana, playerAttack, playerArmor, playerPoints } = useSelector(
         (state: RootState) => state.player
     );
 
@@ -32,13 +32,18 @@ const AboutBasicInfo = () => {
                         <p className='text-white'>{playerMana}</p>
                     </div>
                     <div className='w-full flex gap-2 justify-around items-center'>
-                        <p className='text-green-700'>Attack</p>
-                        <hr className='bg-green-700 border-none w-full h-1' />
+                        <p className='text-yellow-700'>Attack</p>
+                        <hr className='bg-yellow-700 border-none w-full h-1' />
                         <p className='text-white'>{playerAttack}</p>
                     </div>
                     <div className='w-full flex gap-2 justify-around items-center'>
-                        <p className='text-yellow-700'>Health</p>
-                        <hr className='bg-yellow-700 border-none w-full h-1' />
+                        <p className='text-emerald-700'>Armor</p>
+                        <hr className='bg-emerald-700 border-none w-full h-1' />
+                        <p className='text-white'>{playerArmor}</p>
+                    </div>
+                    <div className='w-full flex gap-2 justify-around items-center'>
+                        <p className='text-amber-700'>Points</p>
+                        <hr className='bg-amber-700 border-none w-full h-1' />
                         <p className='text-white'>{playerPoints}</p>
                     </div>
                 </div>

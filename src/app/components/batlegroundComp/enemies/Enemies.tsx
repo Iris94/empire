@@ -22,6 +22,7 @@ const Enemies = () => {
       initialHP={enemy.initialHP}
       enemyClass={enemy.enemyClass}
       enemyAttack={enemy.enemyAttack}
+      enemyArmor={enemy.enemyArmor}
     />
   ));
   

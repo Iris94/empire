@@ -17,9 +17,10 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   initialHP,
   enemyAttack,
   enemyImage,
-  enemyIndex
+  enemyIndex,
+  enemyArmor
 }) => {
-  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints} = useGame();
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints, playerArmor} = useGame();
   const dispatch = useDispatch()
 
   const interactWithEnemy = () => {
@@ -32,7 +33,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         updatedEnemy.props.enemyHP =
           Math.round(Math.max(
             updatedEnemy.props.enemyHP -
-            PlayerDamage(updatedEnemy.props.enemyAttack, playerAttack)
+            PlayerDamage(updatedEnemy.props.enemyArmor, playerAttack)
             , 0));
   
         updatedEnemies[enemyIndex] = updatedEnemy;
@@ -46,25 +47,22 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   
         dispatch(setPlayerPoints(playerPoints - 2));
         updateGeneratedEnemies(newLivingEnemies);
+
+        if (newLivingEnemies.length === 0) {
+          dispatch(setPlayerHealth(maxPlayerHealth))
+          setNextLevel(true)
+        }
         setAttackMode(false);
       }, 2000);
     }
   };
-  
-
-  useEffect(() => {
-    if (generatedEnemies.every(enemy => enemy.props.enemyHP === 0)) {
-      dispatch(setPlayerHealth(maxPlayerHealth))
-      setNextLevel(true)
-    } 
-  }, [generatedEnemies]);
 
   useEffect(() => {
     const handleEnemyAttack = async () => {
       if (!playerTurnBased) {
         await EnemyAttackMovement(
           generatedEnemies,
-          playerAttack,
+          playerArmor,
           playerHealth,
           setPlayerHealth,
           dispatch);
@@ -73,7 +71,6 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
     }
     handleEnemyAttack()
   }, [playerTurnBased])
-  console.log(enemyIndex)
 
   return (
     <div onClick={interactWithEnemy}
@@ -87,6 +84,7 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         initialHP={initialHP}
         enemyAttack={enemyAttack}
         enemyImage={enemyImage}
+        enemyArmor={enemyArmor}
       />
 
       {!playerTurnBased  && 

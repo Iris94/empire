@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import './playerCard.css'
-import { GiHeartPlus, GiRollingEnergy, GiEnergySword, GiEnergyArrow } from 'react-icons/gi';
+import { GiHeartPlus, GiRollingEnergy, GiEnergySword, GiEnergyArrow, GiShield } from 'react-icons/gi';
 
 interface PlayerCardProps {
   playerClass: string;
@@ -9,6 +9,7 @@ interface PlayerCardProps {
   playerHealth: number;
   playerMana: number;
   playerAttack: number;
+  playerArmor: number;
   playerPoints: number;
   onSelectCharacter: () => void;
 }
@@ -18,6 +19,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
   playerHealth,
   playerMana,
   playerAttack,
+  playerArmor,
   playerPoints,
   onSelectCharacter,
 }) => {
@@ -69,12 +71,20 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
             <hr className="w-full h-1 bg-yellow-500 border-none"></hr>
             <p className="text-white w-2/6">{playerAttack}</p>
           </div>
+
+          <div className="flex justify-evenly items-center gap-1">
+            <figure className="text-emerald-500">
+              <GiShield />
+            </figure>
+            <hr className="w-full h-1 bg-emerald-500 border-none"></hr>
+            <p className="text-white w-2/6">{playerArmor}</p>
+          </div>
   
           <div className="flex justify-evenly items-center gap-1">
-            <figure className="text-green-500">
+            <figure className="text-amber-500">
               <GiEnergyArrow />
             </figure>
-            <hr className="w-full h-1 bg-green-500 border-none"></hr>
+            <hr className="w-full h-1 bg-amber-500 border-none"></hr>
             <p className="text-white w-2/6">{playerPoints}</p>
           </div>
         </div>

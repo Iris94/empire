@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import { GiEnergySword, GiHeartPlus } from 'react-icons/gi';
+import { GiEnergySword, GiHeartPlus, GiShield } from 'react-icons/gi';
 import { EnemyInterfaceProps } from '../../states&imports/interfaces';
 
 const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
@@ -9,6 +9,7 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
     initialHP,
     enemyImage,
     enemyAttack,
+    enemyArmor
 }) => {
 
   const healthPercentage = (enemyHP / initialHP) * 100;
@@ -33,6 +34,10 @@ const EnemiesTemplate: React.FC<EnemyInterfaceProps> = ({
       <div className='h-fit w-full flex justify-between items-center enemy-click-class'>
           <div className='text-zinc-400 w-fit h-fit enemy-click-class'>{enemyAttack}</div>
           <div className='text-zinc-400 w-fit h-fit enemy-click-class'><GiEnergySword /></div>
+      </div>
+      <div className='h-fit w-full flex justify-between items-center enemy-click-class'>
+          <div className='text-zinc-400 w-fit h-fit enemy-click-class'>{enemyArmor}</div>
+          <div className='text-zinc-400 w-fit h-fit enemy-click-class'><GiShield /></div>
       </div>
     </>
   )

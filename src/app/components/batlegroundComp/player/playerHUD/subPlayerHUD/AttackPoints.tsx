@@ -18,7 +18,7 @@ const AttackPoints = () => {
         width: '2vmin',
         height: '2vmin',
         border: 'solid 2px black',
-        backgroundColor: index < blueDotsCount ? 'blue' : 'red',
+        backgroundColor: index < blueDotsCount ? 'darkBlue' : 'red',
       }}
       className='rounded-full'
     ></div>

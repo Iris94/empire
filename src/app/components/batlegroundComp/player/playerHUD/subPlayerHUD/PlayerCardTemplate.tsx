@@ -1,5 +1,5 @@
 import React from 'react'
-import { GiEnergySword } from 'react-icons/gi';
+import { GiEnergySword, GiShield } from 'react-icons/gi';
 import Image from 'next/image';
 import '../hud.css'
 import AutoStatsIncrement from '@/app/components/math/playerScripting/AutoStatsIncrement';
@@ -14,7 +14,7 @@ interface PlayerProps {
 const PlayerCardTemplate: React.FC<PlayerProps> = (
     { playerClass, playerImage }
 ) => {
-    const { attackMode, playerAttack } = useGame()
+    const { attackMode, playerAttack, playerArmor } = useGame()
 
     let playerClassModifier = '';
     if (playerClass === "Knight") {
@@ -27,10 +27,16 @@ const PlayerCardTemplate: React.FC<PlayerProps> = (
     
     return (
         <>
-            <div className='dark-blue-card p-1 flex gap-1 relative items-center justify-center'>
+        <div className='flex justify-between dark-blue-card'>
+            <div className='p-1 flex gap-1 relative items-center justify-center'>
                 <div className='text-yellow-400 w-fit h-fit'>{playerAttack}</div>
                 <div className='text-yellow-400 w-fit h-fit'><GiEnergySword /></div>
             </div>
+            <div className='p-1 flex gap-1 relative items-center justify-center'>
+                <div className='text-emerald-400 w-fit h-fit'>{playerArmor}</div>
+                <div className='text-emerald-400 w-fit h-fit'><GiShield /></div>
+            </div>
+        </div>   
             <div className='dark-blue-card p-1 flex gap-1 relative items-center justify-center'>
                 <h5 className='text-zinc-400 h-1/6 w-full flex justify-center items-center'>
                     {playerClass}

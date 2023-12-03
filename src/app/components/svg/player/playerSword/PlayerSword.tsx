@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import AnimationTravel from '../../../math/gameplayScripting/AnimationTravel';
-import PlayerSwordSvg from './PlayerSwordSvg';
+import PlayerWeapons from './PlayerWeapons';
 import PlayerSwordEnd from './PlayerSwordEnd';
 import { gsap } from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -12,13 +12,13 @@ gsap.registerPlugin(MotionPathPlugin);
 
 const PlayerSword = (
   { attackMode, playerClass }: { attackMode: boolean; playerClass: string; }) => {
-  const swordRef = useRef(null)
-  const swordEndRef = useRef(null);
+  const weaponRef = useRef(null)
+  const weaponEndRef = useRef(null);
 
   useEffect(() => {
     const handleAttackOnTarget = (e: any) => {
-      const defaultAttack = swordRef.current!
-      const finalAnimation = swordEndRef.current!
+      const defaultAttack = weaponRef.current!
+      const finalAnimation = weaponEndRef.current!
 
       const clickedElement = document.elementFromPoint(e.clientX, e.clientY);
       if (clickedElement && clickedElement.classList.contains('enemy-click-class')) {
@@ -70,8 +70,8 @@ const PlayerSword = (
 
   return (
     <>
-      <PlayerSwordSvg sword={swordRef} playerClass={playerClass} />
-      <PlayerSwordEnd finisherRef={swordEndRef} />
+      <PlayerWeapons weapon={weaponRef} playerClass={playerClass} />
+      <PlayerSwordEnd finisherRef={weaponEndRef} />
     </>
   )
 };
