@@ -27,6 +27,14 @@ interface GameContextType {
   playerCoordinates: number;
   deathScreen: boolean;
   selectedMap: any;
+  playerScreenDmg: string;
+  enemyScreenDmg: string;
+  levelDelay: boolean;
+  startGame: boolean;
+  setStartGame: React.Dispatch<React.SetStateAction<boolean>>;
+  setLevelDelay: React.Dispatch<React.SetStateAction<boolean>>;
+  setEnemyScreenDmg: React.Dispatch<React.SetStateAction<string>>;
+  setPlayerScreenDmg: React.Dispatch<React.SetStateAction<string>>;
   setPlayerCoordinates: React.Dispatch<React.SetStateAction<number>>;
   setInitialPlayerAP: React.Dispatch<React.SetStateAction<number>>;
   setInitialEnemyHP: React.Dispatch<React.SetStateAction<any>>;
@@ -55,6 +63,14 @@ const defaultValue: GameContextType = {
   playerCoordinates: 0,
   deathScreen: false,
   selectedMap: '',
+  playerScreenDmg: '',
+  enemyScreenDmg: '',
+  levelDelay: false,
+  startGame: true,
+  setStartGame: () => {},
+  setLevelDelay: () => {},
+  setEnemyScreenDmg: () => {},
+  setPlayerScreenDmg: () => {},
   setPlayerCoordinates: () => {},
   setInitialPlayerAP: () => {},
   setInitialEnemyHP: () => {},
@@ -78,8 +94,12 @@ export function GameProvider({ children }: any) {
   const [initialEnemyHP, setInitialEnemyHP] = useState([]);
   const [initialPlayerAP, setInitialPlayerAP] = useState(0);
   const [playerCoordinates, setPlayerCoordinates] = useState(0);
-  const [deathScreen, setDeathScreen] = useState(false)
-  const [selectedMap, setSelectedMap] = useState('')
+  const [deathScreen, setDeathScreen] = useState(false);
+  const [selectedMap, setSelectedMap] = useState('');
+  const [playerScreenDmg, setPlayerScreenDmg] = useState<string>('');
+  const [enemyScreenDmg, setEnemyScreenDmg] = useState<string>('');
+  const [levelDelay, setLevelDelay] = useState(false)
+  const [startGame, setStartGame] = useState(true)
   
   const { level } = useSelector((state: RootState) => state.levelReducer)
   const { playerAttack,
@@ -94,7 +114,7 @@ export function GameProvider({ children }: any) {
   const updateGeneratedEnemies = (newEnemies: any) => {
     setGeneratedEnemies(newEnemies);
   };
-
+ 
   const updateGeneratedMap = (mapImages : any) => {
     if (generatedEnemies.length === 0 || nextLevel) {
       const randomIndex = Math.floor(Math.random() * mapImages.length);
@@ -136,7 +156,6 @@ export function GameProvider({ children }: any) {
     }
   }, [nextLevel])
 
-
   return (
     <GameContext.Provider
       value={{
@@ -156,6 +175,14 @@ export function GameProvider({ children }: any) {
         playerCoordinates,
         deathScreen,
         selectedMap,
+        playerScreenDmg,
+        enemyScreenDmg,
+        levelDelay,
+        startGame,
+        setStartGame,
+        setLevelDelay,
+        setEnemyScreenDmg,
+        setPlayerScreenDmg,
         setPlayerCoordinates,
         setInitialPlayerAP,
         setInitialEnemyHP,

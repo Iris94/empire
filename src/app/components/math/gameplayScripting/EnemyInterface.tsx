@@ -10,6 +10,9 @@ import { useDispatch } from 'react-redux';
 import { setPlayerHealth, setPlayerPoints } from '@/app/GlobalRedux/Features/player/playerSlice';
 import { EnemyAttackMovement } from '../enemiesScriping/EnemyAttackMovement';
 import EnemySword from '../../svg/enemy/enemySword/EnemySword';
+import PlayerDamageStatus from '../../sideScreens/PlayerDamageStatus';
+import EnemyDamageStatus from '../../sideScreens/EnemyDamageStatus';
+import EnemyInteraction from '../playerScripting/EnemyInteraction';
 
 const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyClass,
@@ -20,41 +23,30 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyIndex,
   enemyArmor
 }) => {
-  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints, playerArmor} = useGame();
+
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints, playerArmor, setPlayerScreenDmg, playerScreenDmg, setEnemyScreenDmg, enemyScreenDmg, setLevelDelay} = useGame();
+
   const dispatch = useDispatch()
+  const [showPlayerDamage, setShowPlayerDamage] = useState(false);
 
   const interactWithEnemy = () => {
-    if (attackMode) {
-      setTimeout(() => {
-        const updatedEnemies = [...generatedEnemies];
-        const updatedEnemy = { ...updatedEnemies[enemyIndex] };
-        updatedEnemy.props = { ...updatedEnemy.props };
-  
-        updatedEnemy.props.enemyHP =
-          Math.round(Math.max(
-            updatedEnemy.props.enemyHP -
-            PlayerDamage(updatedEnemy.props.enemyArmor, playerAttack)
-            , 0));
-  
-        updatedEnemies[enemyIndex] = updatedEnemy;
-        updatedEnemies.splice(enemyIndex, 1);
-        const newLivingEnemies = updatedEnemies.map((enemy, index) => {
-          const updatedEnemy = { ...enemy };
-          updatedEnemy.props = { ...updatedEnemy.props };
-          updatedEnemy.props.enemyIndex = index;
-          return updatedEnemy;
-        });
-  
-        dispatch(setPlayerPoints(playerPoints - 2));
-        updateGeneratedEnemies(newLivingEnemies);
-
-        if (newLivingEnemies.length === 0) {
-          dispatch(setPlayerHealth(maxPlayerHealth))
-          setNextLevel(true)
-        }
-        setAttackMode(false);
-      }, 2000);
-    }
+    EnemyInteraction(
+      attackMode,
+      generatedEnemies,
+      enemyIndex,
+      playerAttack,
+      setPlayerScreenDmg,
+      setShowPlayerDamage,
+      updateGeneratedEnemies,
+      setLevelDelay,
+      dispatch,
+      setPlayerHealth,
+      maxPlayerHealth,
+      setNextLevel,
+      setAttackMode,
+      setPlayerPoints,
+      playerPoints
+    )
   };
 
   useEffect(() => {
@@ -65,12 +57,20 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
           playerArmor,
           playerHealth,
           setPlayerHealth,
+          setEnemyScreenDmg,
           dispatch);
         setPlayerTurnBased(true)
+        setEnemyScreenDmg('')
       }
     }
     handleEnemyAttack()
   }, [playerTurnBased])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowPlayerDamage(false)
+    }, 3500);
+  }, [showPlayerDamage])
 
   return (
     <div onClick={interactWithEnemy}
@@ -86,6 +86,9 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
         enemyImage={enemyImage}
         enemyArmor={enemyArmor}
       />
+
+      {showPlayerDamage && <PlayerDamageStatus playerScreenDmg={playerScreenDmg} />}
+      {<EnemyDamageStatus enemyScreenDmg={enemyScreenDmg} />}
 
       {!playerTurnBased  && 
         <EnemySword 

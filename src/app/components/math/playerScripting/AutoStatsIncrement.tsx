@@ -14,8 +14,8 @@ const AutoStatsIncrement = () => {
     const levelModifier = playerLevel * 10;
     const updatePlayerHP = Math.floor(playerHealth + levelModifier * 1.2);
     const updatePlayerMana = Math.floor(playerMana + levelModifier * 1.2);
-    const updatePlayerAttack = Math.floor(playerAttack + levelModifier * 1.1)
-    const updatePlayerArmor = Math.floor(playerArmor + levelModifier * 1.1)
+    const updatePlayerAttack = Math.floor(playerAttack + levelModifier * 1.05)
+    const updatePlayerArmor = Math.floor(playerArmor + levelModifier * 1.05)
 
     return {
         playerHealth: updatePlayerHP,

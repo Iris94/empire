@@ -5,13 +5,14 @@ export const EnemyAttackMovement = async (
     playerArmor : number,
     playerHealth : number,
     setPlayerHealth : any,
+    setEnemyScreenDmg: any,
     dispatch : any) => {
 
     let damage : number = 0;
 
     const attackEnemy = async (enemy: any) => {
       return new Promise<void>((resolve) => {
-        const eachDamage = EnemyDamage(enemy.props.enemyAttack, playerArmor, enemy.props.enemyHP)
+        const eachDamage = EnemyDamage(enemy.props.enemyAttack, playerArmor, setEnemyScreenDmg)
         setTimeout(() => {
           damage += eachDamage;
           const roundedDamage = Math.round(playerHealth - damage)

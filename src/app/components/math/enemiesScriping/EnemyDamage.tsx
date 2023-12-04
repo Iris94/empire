@@ -3,7 +3,7 @@
 export default function EnemyDamage (
     enemyOffense : any,
     playerDeffense : number,
-    enemyHP : number) {
+    setEnemyScreenDmg: any) {
        
     let returnedDamage : number = 0;
     const excessOffense : number = Math.max(enemyOffense - playerDeffense, 0); 
@@ -17,16 +17,20 @@ export default function EnemyDamage (
   if (enemyOffense > playerDeffense) {
         if (isCriticalHit) {
             returnedDamage = enemyOffense + (excessOffense * criticalChance);
+            setEnemyScreenDmg(`Critical Hit: ${returnedDamage}`)
         } else {
             returnedDamage = enemyOffense + excessOffense;
+            setEnemyScreenDmg(`Damage: ${returnedDamage}`)
         }
 
 
     } else {
         if (isMissedHit) {
             returnedDamage = 0;
+            setEnemyScreenDmg('Missed')
         } else {
             returnedDamage = enemyOffense
+            setEnemyScreenDmg(`Damage: ${returnedDamage}`)
         }
     }
     return returnedDamage

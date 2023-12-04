@@ -56,6 +56,12 @@ const PlayerSword = (
               opacity: 1,
               scale: 1.2,
               rotationZ: -45,
+              onComplete: () => {
+                gsap.to(finalAnimation, {
+                  opacity: 0,
+                  duration: 0.5
+                })
+              }
             })
           },
         });

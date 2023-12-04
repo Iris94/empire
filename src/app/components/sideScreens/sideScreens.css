@@ -17,6 +17,32 @@
     animation: deathBox 1s ease-in forwards
 }
 
+.player-screen-dmg {
+    top: 10vmin;
+    position: absolute;
+    font-size: 3vmin;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.enemy-screen-dmg {
+    position: absolute;
+    bottom: -45%;
+    left: 45%;
+    font-size: 3vmin;
+    pointer-events: none;
+}
+
+.shield-logo {
+    font-size: 8vmax;
+    top: 25vmin;
+}
+
+.shield-text {
+    font-size: 3vmax;
+    font-weight: bold;
+}
+
 @keyframes deathBox {
     from {
         opacity: 0;

@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+
+
+import React, { useEffect, useState } from 'react'
 import { RootState } from '@/app/GlobalRedux/store'
 import { useSelector } from 'react-redux'
 import PlayerCardTemplate from '../../batlegroundComp/player/playerHUD/subPlayerHUD/PlayerCardTemplate'
 import '../../batlegroundComp/player/playerHUD/hud.css'
 import { useGame } from '@/app/context/GameContext'
 import PlayerSword from '../../svg/player/playerSword/PlayerSword'
+import EnemyDamageStatus from '../../sideScreens/EnemyDamageStatus'
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
   const { setAttackMode, playerTurnBased, attackMode, playerPoints } = useGame();
-
 
   const handleClickAttack = () => {
     if (playerPoints >= 2) {

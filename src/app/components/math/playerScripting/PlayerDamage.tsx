@@ -2,7 +2,8 @@
 
 export default function PlayerDamage (
     enemyDefense : any,
-    playerOffense : number) {
+    playerOffense : number,
+    setPlayerScreenDmg: React.Dispatch<React.SetStateAction<string>>) {
        
     let returnedDamage : number = 0;
     const excessOffense : number = Math.max(playerOffense - enemyDefense, 0); 
@@ -16,17 +17,23 @@ export default function PlayerDamage (
     if (playerOffense > enemyDefense) {
         if (isCriticalHit) {
             returnedDamage = playerOffense + (excessOffense * criticalChance);
+            setPlayerScreenDmg(`Critical Hit: ${returnedDamage}`)
         } else {
             returnedDamage = playerOffense + excessOffense;
+            setPlayerScreenDmg(`Damage: ${returnedDamage}`)
         }
 
 
     } else {
         if (isMissedHit) {
             returnedDamage = 0;
+            setPlayerScreenDmg('Missed')
         } else {
             returnedDamage = playerOffense
+            setPlayerScreenDmg(`Damage: ${returnedDamage}`)
         }
     }
+
+    
     return returnedDamage
 }

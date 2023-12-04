@@ -10,9 +10,9 @@ import { RootState } from '@/app/GlobalRedux/store'
 
 const Enemies = () => {
   const { level } = useSelector((state : RootState) => state.levelReducer)
-  const { updateGeneratedEnemies, generatedEnemies, nextLevel } = useGame()
+  const { updateGeneratedEnemies, generatedEnemies, nextLevel, startGame, setStartGame } = useGame()
   const numberOfEnemySpawns = NumberOfSpawns(level);
-  const randomEnemies = Array.from({ length: 3 }, (_, index) => getRandomEnemy(level));
+  const randomEnemies = Array.from({ length: 2 }, (_, index) => getRandomEnemy(level));
 
   const enemyComponents = randomEnemies.map((enemy, index) => (
     <GenerateEnemies
@@ -27,10 +27,13 @@ const Enemies = () => {
   ));
   
   useEffect(() => {
-    if (generatedEnemies.length === 0 || nextLevel) {
+    if (startGame && generatedEnemies.length === 0) {
+      updateGeneratedEnemies(enemyComponents)
+      setStartGame(false)
+    } else if (nextLevel) {
       updateGeneratedEnemies(enemyComponents);
     }
-  }, [generatedEnemies, updateGeneratedEnemies]);
+  }, [generatedEnemies, updateGeneratedEnemies, startGame]);
 
 
   return (
