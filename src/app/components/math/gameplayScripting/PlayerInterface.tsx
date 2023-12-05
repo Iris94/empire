@@ -9,7 +9,7 @@ import { useGame } from '@/app/context/GameContext'
 import PlayerSword from '../../svg/player/playerSword/PlayerSword'
 import PlayerVoice from '../../sound/voices/PlayerVoice'
 import PlayerMiscSound from '../../sound/fxsounds/PlayerMiscSound'
-
+import PlayerVoicePlay from '../../sound/voices/PlayerVoicePlay'
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
@@ -17,7 +17,8 @@ const PlayerInterface = () => {
 
   const handleClickAttack = () => {
     if ((Math.floor(Math.random() * 10) + 1) < 5) {
-      PlayerVoice(playerClass)
+      const audioPath = PlayerVoice(playerClass);
+      PlayerVoicePlay(audioPath);
     }
     if ((Math.floor(Math.random() * 10) + 1) < 11) {
       PlayerMiscSound(playerClass)
