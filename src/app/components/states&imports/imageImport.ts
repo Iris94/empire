@@ -18,6 +18,8 @@ import IntroSky from '../../../../public/skyTear.png';
 import IntroChaos from '../../../../public/chaosArmy.png';
 import IntroKing from '../../../../public/kingSpeech.png';
 import IntroMarch from '../../../../public/armyMarch.png';
+import Victory from '../../../../public/victory.png';
+import Death from '../../../../public/death.png';
 
 export { 
     Knight, 
@@ -39,5 +41,7 @@ export {
     IntroFlag,
     IntroKing,
     IntroMarch,
-    IntroSky
+    IntroSky,
+    Victory,
+    Death
 };

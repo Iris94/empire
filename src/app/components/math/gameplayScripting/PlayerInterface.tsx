@@ -1,4 +1,4 @@
-
+'use client'
 
 import React, { useEffect, useState } from 'react'
 import { RootState } from '@/app/GlobalRedux/store'
@@ -7,17 +7,25 @@ import PlayerCardTemplate from '../../batlegroundComp/player/playerHUD/subPlayer
 import '../../batlegroundComp/player/playerHUD/hud.css'
 import { useGame } from '@/app/context/GameContext'
 import PlayerSword from '../../svg/player/playerSword/PlayerSword'
-import EnemyDamageStatus from '../../sideScreens/EnemyDamageStatus'
+import PlayerVoice from '../../sound/voices/PlayerVoice'
+import PlayerMiscSound from '../../sound/fxsounds/PlayerMiscSound'
+
 
 const PlayerInterface = () => {
   const { playerClass, playerImage } = useSelector((state: RootState) => state.player)
-  const { setAttackMode, playerTurnBased, attackMode, playerPoints } = useGame();
+  const { setAttackMode, playerTurnBased, attackMode, playerPoints, setNextTurn } = useGame();
 
   const handleClickAttack = () => {
+    if ((Math.floor(Math.random() * 10) + 1) < 5) {
+      PlayerVoice(playerClass)
+    }
+    if ((Math.floor(Math.random() * 10) + 1) < 11) {
+      PlayerMiscSound(playerClass)
+    }
     if (playerPoints >= 2) {
       setAttackMode((prevAttackMode) => !prevAttackMode);
     } else {
-      console.log('No points')
+      setNextTurn(true)
     }
   }
 

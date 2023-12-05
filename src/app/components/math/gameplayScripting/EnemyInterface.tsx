@@ -13,6 +13,8 @@ import EnemySword from '../../svg/enemy/enemySword/EnemySword';
 import PlayerDamageStatus from '../../sideScreens/PlayerDamageStatus';
 import EnemyDamageStatus from '../../sideScreens/EnemyDamageStatus';
 import EnemyInteraction from '../playerScripting/EnemyInteraction';
+import EnemiesVoice from '../../sound/voices/EnemiesVoice';
+import EnemiesDeath from '../../sound/voices/EnemiesDeath';
 
 const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyClass,
@@ -24,14 +26,14 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
   enemyArmor
 }) => {
 
-  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints, playerArmor, setPlayerScreenDmg, playerScreenDmg, setEnemyScreenDmg, enemyScreenDmg, setLevelDelay} = useGame();
+  const { attackMode, playerHealth, generatedEnemies, playerAttack, playerTurnBased, maxPlayerHealth, setAttackMode, updateGeneratedEnemies, setNextLevel, setPlayerTurnBased, playerPoints, playerArmor, setPlayerScreenDmg, playerScreenDmg, setEnemyScreenDmg, enemyScreenDmg, setLevelDelay } = useGame();
 
   const dispatch = useDispatch()
   const [showPlayerDamage, setShowPlayerDamage] = useState(false);
 
   const interactWithEnemy = () => {
+    if (!attackMode) return;
     EnemyInteraction(
-      attackMode,
       generatedEnemies,
       enemyIndex,
       playerAttack,
@@ -47,11 +49,18 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
       setPlayerPoints,
       playerPoints
     )
+    if ((Math.floor(Math.random() * 10) + 1) < 7) {
+      EnemiesDeath()
+    }
   };
 
   useEffect(() => {
     const handleEnemyAttack = async () => {
       if (!playerTurnBased) {
+        if ((Math.floor(Math.random() * 10) + 1) < 11) {
+          EnemiesVoice()
+        }
+
         await EnemyAttackMovement(
           generatedEnemies,
           playerArmor,
@@ -90,8 +99,8 @@ const EnemyInterface: React.FC<EnemyInterfaceProps> = ({
       {showPlayerDamage && <PlayerDamageStatus playerScreenDmg={playerScreenDmg} />}
       {<EnemyDamageStatus enemyScreenDmg={enemyScreenDmg} />}
 
-      {!playerTurnBased  && 
-        <EnemySword 
+      {!playerTurnBased &&
+        <EnemySword
           playerTurnBased={playerTurnBased}
           enemyIndex={enemyIndex}
         />

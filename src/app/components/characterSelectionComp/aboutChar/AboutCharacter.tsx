@@ -1,10 +1,16 @@
+'use client'
+
 import React from 'react';
 import AboutBasicInfo from './AboutBasicInfo';
 import AboutBackground from './AboutBackground';
 import AboutStats from './AboutStats';
 import Link from 'next/link';
 
-const AboutCharacter = ({showAboutCharacter} : any) => {
+const AboutCharacter = ({showAboutCharacter} : any, setThemeMusic : any) => {
+
+  const handleThemeMusic = () => {
+      setThemeMusic(false)
+  }
 
   return (
     <div className={
@@ -16,6 +22,7 @@ const AboutCharacter = ({showAboutCharacter} : any) => {
       
       <div className='w-full h-fit flex items-center justify-center blue-card p-1'>
         <Link
+        onClick={handleThemeMusic}
         href={'/battleground'}
         className='rounded-md lg:w-1/3 w-2/3 h-full flex items-center 
         justify-center dark-blue-card bg-green-950

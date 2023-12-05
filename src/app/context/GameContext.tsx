@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import DiceRoll from "../components/math/gameplayScripting/DiceRoll";
 import AutoStatsIncrement from "../components/math/playerScripting/AutoStatsIncrement";
 import { setLevel } from "../GlobalRedux/Features/level/levelSlice";
-import DeathScreen from "../components/sideScreens/DeathScreen";
 import { setPlayerAttack, setPlayerHealth, setPlayerMana, setPlayerPoints } from "../GlobalRedux/Features/player/playerSlice";
 
 
@@ -31,6 +30,8 @@ interface GameContextType {
   enemyScreenDmg: string;
   levelDelay: boolean;
   startGame: boolean;
+  nextTurn: boolean;
+  setNextTurn: React.Dispatch<React.SetStateAction<boolean>>;
   setStartGame: React.Dispatch<React.SetStateAction<boolean>>;
   setLevelDelay: React.Dispatch<React.SetStateAction<boolean>>;
   setEnemyScreenDmg: React.Dispatch<React.SetStateAction<string>>;
@@ -67,6 +68,8 @@ const defaultValue: GameContextType = {
   enemyScreenDmg: '',
   levelDelay: false,
   startGame: true,
+  nextTurn: false,
+  setNextTurn: () => {},
   setStartGame: () => {},
   setLevelDelay: () => {},
   setEnemyScreenDmg: () => {},
@@ -98,8 +101,9 @@ export function GameProvider({ children }: any) {
   const [selectedMap, setSelectedMap] = useState('');
   const [playerScreenDmg, setPlayerScreenDmg] = useState<string>('');
   const [enemyScreenDmg, setEnemyScreenDmg] = useState<string>('');
-  const [levelDelay, setLevelDelay] = useState(false)
-  const [startGame, setStartGame] = useState(true)
+  const [levelDelay, setLevelDelay] = useState(false);
+  const [startGame, setStartGame] = useState(true);
+  const [nextTurn, setNextTurn] = useState(false)
   
   const { level } = useSelector((state: RootState) => state.levelReducer)
   const { playerAttack,
@@ -179,6 +183,8 @@ export function GameProvider({ children }: any) {
         enemyScreenDmg,
         levelDelay,
         startGame,
+        nextTurn,
+        setNextTurn,
         setStartGame,
         setLevelDelay,
         setEnemyScreenDmg,

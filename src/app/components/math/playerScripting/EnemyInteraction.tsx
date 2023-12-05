@@ -4,7 +4,6 @@ import React from 'react'
 import PlayerDamage from './PlayerDamage';
 
 const EnemyInteraction = (
-     attackMode: boolean,
      generatedEnemies: any,
      enemyIndex: number,
      playerAttack: number,
@@ -21,7 +20,6 @@ const EnemyInteraction = (
      playerPoints: number
 ) => {
 
-    if (attackMode) {
         const updatedEnemies = [...generatedEnemies];
         const updatedEnemy = { ...updatedEnemies[enemyIndex] };
         updatedEnemy.props = { ...updatedEnemy.props };
@@ -61,7 +59,7 @@ const EnemyInteraction = (
           dispatch(setPlayerPoints(playerPoints - 2));
           setAttackMode(false);
         }, 2000);
-      }
+      
 }
 
 export default EnemyInteraction

@@ -3,11 +3,11 @@
 }
 
 .death-section {
-    z-index: 500;
+    z-index: 50;
 }
 
 .death-text {
-    font-size: 4vmax;
+    font-size: 3vmax;
     animation: deathText 3s ease-in-out forwards;
     opacity: 0;
 }
@@ -39,8 +39,10 @@
 }
 
 .shield-text {
-    font-size: 3vmax;
+    font-size: 1.5vmax;
     font-weight: bold;
+    text-shadow: 
+    0 0 2vmin black
 }
 
 @keyframes deathBox {

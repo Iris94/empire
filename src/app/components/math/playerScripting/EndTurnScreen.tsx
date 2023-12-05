@@ -2,6 +2,7 @@ import React from 'react'
 import { setPlayerPoints } from '@/app/GlobalRedux/Features/player/playerSlice';
 import { useGame } from '@/app/context/GameContext';
 import { useDispatch } from 'react-redux';
+import './playerScripting.css'
 
 const EndTurnScreen = ({
   playerTurnBased,
@@ -10,13 +11,16 @@ const EndTurnScreen = ({
   playerTurnBased: boolean | undefined;
   setPlayerTurnBased: React.Dispatch<any>;
 }) => {
-  const {initialPlayerAP} = useGame()
+  const {initialPlayerAP, nextTurn, setNextTurn} = useGame()
   const dispatch = useDispatch()
 
 
   const switchToEnemiesTurn = () => {
     dispatch(setPlayerPoints(initialPlayerAP))
     setPlayerTurnBased(false)
+    if (nextTurn) {
+      setNextTurn(false)
+    }
   }
 
   return (
@@ -30,6 +34,10 @@ const EndTurnScreen = ({
               onClick={() => switchToEnemiesTurn()}>End Turn</button>
             )}
         </div>
+
+        {nextTurn ? (
+          <div className='absolute bottom-1/3 text-zinc-500 dark-blue-card p-1 pulse'>You need to end your turn</div>
+        ) : ''}
     </div>
   )
 }
