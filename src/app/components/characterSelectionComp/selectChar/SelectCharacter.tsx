@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FC, useEffect } from 'react';
+import React, { FC, useRef } from 'react';
 import { Knight, Mage, Assassin } from '../../states&imports/imageImport';
 import PlayerCard from './PlayerCard';
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,7 @@ import {
   setPlayerImage,
 } from '@/app/GlobalRedux/Features/player/playerSlice';
 import PlayerVoice from '../../sound/voices/PlayerVoice';
+import PlayerVoicePlay from '../../sound/voices/PlayerVoicePlay';
 
 interface SelectCharacterProps {
   setShowAboutCharacter: (show: boolean) => void;
@@ -23,9 +24,8 @@ const SelectCharacter: FC<SelectCharacterProps> = ({ setShowAboutCharacter }) =>
   const dispatch = useDispatch();
 
   const playCharacterSounds = (characterClass: string) => {
-    if ((Math.floor(Math.random() * 10) + 1) < 11) {
-      PlayerVoice(characterClass)
-    }
+    const audioPath = PlayerVoice(characterClass);
+    PlayerVoicePlay(audioPath);
   }
 
   const handleCharacterSelect = (characterClass: string) => {

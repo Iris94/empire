@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10 } from '../../states&imports/imageImport';
 import Image from 'next/image';
 import DeathScreen from '../../sideScreens/DeathScreen';
@@ -13,13 +13,19 @@ const mapImages = [Map1, Map2, Map3, Map4, Map6, Map7, Map8, Map10];
 const Map = () => {
   const { attackMode, deathScreen, nextLevel, selectedMap, updateGeneratedMap, levelDelay, setLevelDelay } = useGame()
 
+
+  const combatSong = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio('/gameMusic/themeMusic1.mp3') : undefined
+  );
+
+
   useEffect(() => {
     updateGeneratedMap(mapImages)
   }, [nextLevel])
 
   useEffect(() => {
     if (attackMode) {
-      PlayCombatMusic(deathScreen)
+      PlayCombatMusic(deathScreen, combatSong)
     }
   }, [attackMode])
 

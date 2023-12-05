@@ -1,13 +1,15 @@
 
 
-const PlayThemeMusic = (themeMusic : boolean, themeSong : any) => {
-    
-    if (themeMusic) {
-        themeSong.volume = 0.7;
-        themeSong.play()
-    } else {
-        themeSong.pause()
-    }
-}
+const PlayThemeMusic = (themeMusic: boolean, themeSong : any) => {
 
-export default PlayThemeMusic
+  if (themeSong.current) {
+    if (themeMusic) {
+      themeSong.current.volume = 0.7;
+      themeSong.current.play();
+    } else {
+      themeSong.current.pause();
+    }
+  }
+};
+
+export default PlayThemeMusic;

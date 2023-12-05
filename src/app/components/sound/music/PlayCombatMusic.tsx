@@ -1,15 +1,15 @@
 
 
-const PlayCombatMusic = (deathScreen : boolean) => {
-    const startCombatMusic = () => {
-        if (deathScreen) return themeSong.pause()
-        themeSong.volume = 0.3
-        themeSong.play()
-    }
+const PlayCombatMusic = (deathScreen : boolean, themeSong : any) => {
 
-    startCombatMusic()
+    if (themeSong.current) {
+        if (!deathScreen) {
+          themeSong.current.volume = 0.7;
+          themeSong.current.play();
+        } else {
+          themeSong.current.pause();
+        }
+      }
 }
 
 export default PlayCombatMusic
-
-const themeSong = new Audio ('/gameMusic/combatMusic1.mp3')

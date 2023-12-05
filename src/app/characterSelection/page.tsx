@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SelectCharacter from "../components/characterSelectionComp/selectChar/SelectCharacter";
 import AboutCharacter from "../components/characterSelectionComp/aboutChar/AboutCharacter";
 import PlayThemeMusic from '../components/sound/music/PlayThemeMusic';
@@ -8,10 +8,13 @@ import PlayThemeMusic from '../components/sound/music/PlayThemeMusic';
 const CharacterSelection = () => {
   const [showAboutCharacter, setShowAboutCharacter] = useState(false);
   const [themeMusic, setThemeMusic] = useState(true)
-  const themeSong = new Audio ('/gameMusic/themeMusic1.mp3')
+
+  const themeSong = useRef<HTMLAudioElement | undefined>(
+    typeof Audio !== "undefined" ? new Audio('/gameMusic/themeMusic1.mp3') : undefined
+  );
 
   useEffect(() => {
-    PlayThemeMusic(themeMusic, themeSong)
+      PlayThemeMusic(themeMusic, themeSong)
   }, [themeMusic])
 
   return (
