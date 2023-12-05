@@ -3,15 +3,15 @@
 import React, { useState, useEffect } from 'react';
 import SelectCharacter from "../components/characterSelectionComp/selectChar/SelectCharacter";
 import AboutCharacter from "../components/characterSelectionComp/aboutChar/AboutCharacter";
-import { themeSong } from '../components/sound/music/PlayThemeMusic';
-import { PlayThemeMusic } from '../components/sound/music/PlayThemeMusic';
+import PlayThemeMusic from '../components/sound/music/PlayThemeMusic';
 
 const CharacterSelection = () => {
   const [showAboutCharacter, setShowAboutCharacter] = useState(false);
   const [themeMusic, setThemeMusic] = useState(true)
+  const themeSong = new Audio ('/gameMusic/themeMusic1.mp3')
 
   useEffect(() => {
-    PlayThemeMusic(themeMusic)
+    PlayThemeMusic(themeMusic, themeSong)
   }, [themeMusic])
 
   return (
