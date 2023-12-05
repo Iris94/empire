@@ -23,8 +23,8 @@ const enemyStatsCalculator = (level : number) => {
     const enemy = enemyTypes[enemyName];
     const levelNumber = level
     const levelModifier = (levelNumber - 1) * 10;
-    const lowerBoundHP = Math.floor(enemy.enemyHP + levelModifier * 0.9);
-    const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.5);
+    const lowerBoundHP = Math.floor(enemy.enemyHP + levelModifier * 1.5);
+    const upperBoundHP = Math.floor(enemy.enemyHP + levelModifier * 2);
     const lowerBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 0.9);
     const upperBoundPT = Math.floor(enemy.enemyAttack + levelModifier * 1.5);
     const lowerBoundArmor = Math.floor(enemy.enemyArmor + levelModifier * 0.9);

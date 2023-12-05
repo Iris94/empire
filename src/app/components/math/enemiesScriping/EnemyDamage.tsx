@@ -17,10 +17,10 @@ export default function EnemyDamage (
   if (enemyOffense > playerDeffense) {
         if (isCriticalHit) {
             returnedDamage = enemyOffense + (excessOffense * criticalChance);
-            setEnemyScreenDmg(`Critical Hit: ${returnedDamage}`)
+            setEnemyScreenDmg(`Critical Hit: ${returnedDamage.toFixed(0)}`)
         } else {
             returnedDamage = enemyOffense + excessOffense;
-            setEnemyScreenDmg(`Damage: ${returnedDamage}`)
+            setEnemyScreenDmg(`Damage: ${returnedDamage.toFixed(0)}`)
         }
 
 
@@ -30,7 +30,7 @@ export default function EnemyDamage (
             setEnemyScreenDmg('Missed')
         } else {
             returnedDamage = enemyOffense
-            setEnemyScreenDmg(`Damage: ${returnedDamage}`)
+            setEnemyScreenDmg(`Damage: ${returnedDamage.toFixed(0)}`)
         }
     }
     return returnedDamage
